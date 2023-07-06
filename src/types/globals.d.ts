@@ -3,6 +3,9 @@ declare global {
     title?: string;
   };
   type ScreenType = React.FC<ScreenConfigType>;
+  type SessionType = {
+    counter?: number;
+  };
 }
 
 export {};
