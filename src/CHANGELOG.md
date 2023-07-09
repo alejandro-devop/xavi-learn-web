@@ -6,3 +6,7 @@
 - [added]: tailwind library
 - [init]: styles
 - [added]: Button base component
+- [added]: Fieldset component
+- [added]: InputBase component
+- [added]: Label button component
+- [added]: Submit button component
