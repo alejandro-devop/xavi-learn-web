@@ -5,3 +5,4 @@
 - [added]: SASS library
 - [added]: tailwind library
 - [init]: styles
+- [added]: Button base component
