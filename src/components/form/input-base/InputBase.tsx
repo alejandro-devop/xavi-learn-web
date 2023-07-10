@@ -1,3 +1,4 @@
+import React from "react";
 import { InputBaseProps } from "./types";
 import { Fieldset, Label } from "components/form";
 
@@ -7,8 +8,16 @@ import { Fieldset, Label } from "components/form";
  * @param param0
  * @returns
  */
-const InputBase: React.FC<InputBaseProps> = ({ label, ...props }) => {
-  const inputRender = <input name={props?.name || props?.id} {...props} />;
+const InputBase: React.FC<InputBaseProps> = ({ error, label, ...props }) => {
+  const inputRender = (
+    <input
+      name={props?.name || props?.id}
+      {...props}
+      onChange={props?.onChange || (() => null)}
+      value={props?.value || ""}
+    />
+  );
+
   if (label) {
     return (
       <Fieldset {...props?.fieldSetProps}>
@@ -16,10 +25,11 @@ const InputBase: React.FC<InputBaseProps> = ({ label, ...props }) => {
           {label}
         </Label>
         {inputRender}
+        {error && <span className="form-error-msg">{error}</span>}
       </Fieldset>
     );
   }
   return inputRender;
 };
 
-export default InputBase;
+export default React.memo(InputBase);

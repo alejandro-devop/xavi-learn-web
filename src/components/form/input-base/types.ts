@@ -3,4 +3,5 @@ export interface InputBaseProps
   fieldSetProps?: React.HTMLAttributes<HTMLElement>;
   label?: string;
   labelProps?: React.HTMLAttributes<HTMLLabelElement>;
+  error?: string | null;
 }

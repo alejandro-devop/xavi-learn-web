@@ -1,3 +1,4 @@
+import React from "react";
 import ButtonBase from "../button-base/ButtonBase";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -16,4 +17,4 @@ Button.defaultProps = {
   type: "button",
 };
 
-export default Button;
+export default React.memo(Button);

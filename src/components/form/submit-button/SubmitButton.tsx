@@ -1,3 +1,4 @@
+import React from "react";
 import { ButtonBase } from "components/buttons";
 
 interface SubmitButtonProps
@@ -16,4 +17,4 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ children, ...props }) => {
     </ButtonBase>
   );
 };
-export default SubmitButton;
+export default React.memo(SubmitButton);

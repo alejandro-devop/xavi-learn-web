@@ -1,3 +1,4 @@
+import React from "react";
 interface FieldsetProps
   extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {}
 
@@ -10,4 +11,4 @@ const Fieldset: React.FC<FieldsetProps> = ({ children }) => {
   return <fieldset>{children}</fieldset>;
 };
 
-export default Fieldset;
+export default React.memo(Fieldset);
