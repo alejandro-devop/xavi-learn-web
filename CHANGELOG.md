@@ -10,3 +10,5 @@
 - [added]: InputBase component
 - [added]: Label button component
 - [added]: Submit button component
+- [added]: lodash library
+- [added]: useForm hook
