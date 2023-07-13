@@ -1,7 +1,14 @@
 /** Will be removed when design is being implemented */
-input {
+input, textarea {
     border-width: 1px;
     border-style: solid;
     border-color: $input-border;
     border-radius: 5px;
+    padding: 0px 10px;
+    margin: 0px 0px 10px 10px;
+}
+
+.form-error-msg {
+    color: red;
+    font-size: 0.9rem;
 }

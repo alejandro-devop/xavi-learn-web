@@ -4,8 +4,15 @@ declare global {
   };
   type ScreenType = React.FC<ScreenConfigType>;
   type SessionType = {
-    counter?: number;
+    user?: {
+      name?: string;
+      email?: string;
+    };
+    logged?: boolean;
+    token?: string;
+    refreshToken?: string;
   };
+
   // Api
   type EndpointConfigType = {
     [key: string]:
@@ -14,6 +21,18 @@ declare global {
           url: string;
           type?: HTTPMethodType;
         };
+  };
+
+  type APIResponseType<Data = {}> = {
+    status: boolean;
+    env: "local" | "production";
+    meta?: {
+      env: "local" | "production";
+    };
+    already_registered?: boolean;
+    errors?: string[];
+    message?: string;
+    data?: Data;
   };
 }
 

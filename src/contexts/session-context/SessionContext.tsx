@@ -11,9 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 type SessionContextType = {
   session: SessionType;
-  setKey: (k: string, v: any) => void;
+  setKey: (k: keyof SessionType, v: any) => void;
   clear: () => void;
-  setAllKeys: (d: any) => void;
+  setAllKeys: (keys: SessionType) => void;
 };
 
 export const SessionCtx = createContext<SessionContextType>({

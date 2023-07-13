@@ -33,13 +33,14 @@ export type FieldConfigType = {
   label?: string;
   placeholder?: string;
   rules?: RuleType;
+  processor?: any;
   default?: string | number | boolean;
 };
 
 /**
  * Type to define the configuration of the hook
  */
-export type HookConfigType<FT> = {
+export type UseFormHookConfigType<FT> = {
   defaultValues?: FT;
   rules?: Partial<Record<keyof FT, RuleType>>;
   fields?: Partial<Record<keyof FT, FieldConfigType>>;
