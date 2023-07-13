@@ -1,0 +1,8 @@
+{
+  "auth.login": "post:/api/v1/user/login",
+  "auth.register": "post:/api/v1/user/register",
+  "activity.categories.list": "get:/api/v1/activity-categories",
+  "activity.categories.save": "post:/api/v1/activity-categories",
+  "activity.categories.update": "put:/api/v1/activity-categories/{id}",
+  "activity.categories.delete": "delete:/api/v1/activity-categories/{id}"
+}
