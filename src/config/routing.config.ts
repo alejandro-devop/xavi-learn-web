@@ -6,17 +6,24 @@ import {
   RegisterScreen,
 } from "screens/unauthenticated";
 
+export const routeAliases = {
+  landing: "/",
+  login: "/login",
+  register: "/register",
+  dashboard: "/",
+};
+
 const routes: RoutesConfigType = {
   unauthenticated: {
-    "/": {
+    [routeAliases.landing]: {
       screen: LandingScreen,
       title: "Landing title",
     },
-    "/login": LoginScreen,
-    "/register": RegisterScreen,
+    [routeAliases.login]: LoginScreen,
+    [routeAliases.register]: RegisterScreen,
   },
   authenticated: {
-    "/": DashboardScreen,
+    [routeAliases.dashboard]: DashboardScreen,
   },
 };
 

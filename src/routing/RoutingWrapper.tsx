@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ScreenRenderer from "./ScreenRenderer";
 import { useAppRoutes } from "./hooks";
 import routesConfig from "config/routing.config";
@@ -20,6 +20,8 @@ const RoutingWrapper: React.FC = () => {
           }
         />
       ))}
+      {/* Fallback routes */}
+      <Route path="*" element={<Navigate to={"/"} replace />} />
     </Routes>
   );
 };

@@ -1,9 +1,10 @@
-import { useContext } from "react";
 import { RoutesConfigType, RouteType } from "./types";
-import { RoutingCTX } from "contexts/routing-context/RoutingContext";
+import { useSession } from "hooks";
 
 export const useAppRoutes = (routes: RoutesConfigType) => {
-  const { logged } = useContext(RoutingCTX);
+  const { session } = useSession();
+  const { logged } = session || {};
+  // const { logged } = useContext(RoutingCTX);
 
   /**
    * Transforms the routes configuration into an array of objects
