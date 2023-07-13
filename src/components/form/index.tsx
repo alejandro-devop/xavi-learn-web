@@ -1,19 +1,25 @@
 import { FormEvent } from "react";
+import CheckboxField from "./checkbox-field";
 import EmailField from "./email-field";
 import Fieldset from "./fieldset";
+import IconField from "./icon-field";
 import InputBase from "./input-base";
 import Label from "./label";
 import PasswordField from "./password-field";
 import SubmitButton from "./submit-button";
-import TextField from "./text-field/TextField";
+import TextAreaField from "./text-area";
+import TextField from "./text-field";
 
 export {
+  CheckboxField,
   EmailField,
   Fieldset,
+  IconField,
   InputBase,
   Label,
   PasswordField,
   SubmitButton,
+  TextAreaField,
   TextField,
 };
 
