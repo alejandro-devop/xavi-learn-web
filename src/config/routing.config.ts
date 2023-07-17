@@ -1,5 +1,10 @@
 import { RoutesConfigType } from "routing/types";
-import { DashboardScreen } from "screens/authenticated";
+import {
+  DashboardScreen,
+  LearningScreen,
+  ProfileScreen,
+  SettingsScreen,
+} from "screens/authenticated";
 import {
   LandingScreen,
   LoginScreen,
@@ -11,6 +16,9 @@ export const routeAliases = {
   login: "/login",
   register: "/register",
   dashboard: "/",
+  learning: "/learning",
+  profile: "/profile",
+  settings: "/settings",
 };
 
 const routes: RoutesConfigType = {
@@ -24,6 +32,9 @@ const routes: RoutesConfigType = {
   },
   authenticated: {
     [routeAliases.dashboard]: DashboardScreen,
+    [routeAliases.learning]: LearningScreen,
+    [routeAliases.profile]: ProfileScreen,
+    [routeAliases.settings]: SettingsScreen,
   },
 };
 

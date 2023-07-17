@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import RoutingContext from "contexts/routing-context";
 import RoutingWrapper from "./RoutingWrapper";
+import { Menu } from "components";
+import StatusBar from "components/status-bar/StatusBar";
 
 interface AppRoutingProps {}
 
@@ -13,9 +15,13 @@ interface AppRoutingProps {}
 const AppRouting: React.FC<AppRoutingProps> = () => {
   return (
     <Router>
-      <RoutingContext>
-        <RoutingWrapper />
-      </RoutingContext>
+      <StatusBar />
+      <Menu />
+      <div id="content">
+        <RoutingContext>
+          <RoutingWrapper />
+        </RoutingContext>
+      </div>
     </Router>
   );
 };
