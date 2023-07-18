@@ -5,6 +5,7 @@ import Fieldset from "./fieldset";
 import IconField from "./icon-field";
 import InputBase from "./input-base";
 import Label from "./label";
+import NumberField from "./number-field";
 import PasswordField from "./password-field";
 import SubmitButton from "./submit-button";
 import TextAreaField from "./text-area";
@@ -17,6 +18,7 @@ export {
   IconField,
   InputBase,
   Label,
+  NumberField,
   PasswordField,
   SubmitButton,
   TextAreaField,

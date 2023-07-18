@@ -4,5 +4,9 @@
   "activity.categories.list": "get:/api/v1/activity-categories",
   "activity.categories.save": "post:/api/v1/activity-categories",
   "activity.categories.update": "put:/api/v1/activity-categories/{id}",
-  "activity.categories.delete": "delete:/api/v1/activity-categories/{id}"
+  "activity.categories.delete": "delete:/api/v1/activity-categories/{id}",
+  "courses.list": "get:/api/v1/courses",
+  "courses.update": "put:/api/v1/courses/{id}",
+  "courses.delete": "delete:/api/v1/courses/{id}",
+  "courses.save": "post:/api/v1/courses"
 }
