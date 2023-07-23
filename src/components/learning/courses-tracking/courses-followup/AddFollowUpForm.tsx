@@ -1,16 +1,11 @@
 import { useForm } from "hooks";
 import config from "./form.config";
-import Form, {
-  Fieldset,
-  NumberField,
-  TextAreaField,
-  TextField,
-} from "components/form";
+import Form, { Fieldset } from "components/form";
 import { Button } from "components/buttons";
 import { CourseSchema } from "types/schemas/courses";
 import ErrorRenderer from "components/form/error-renderer";
 
-interface CourseFormProps {
+interface AddFollowUpFormProps {
   loading?: boolean;
   errors?: string[] | null;
   isUpdate?: boolean;
@@ -19,7 +14,7 @@ interface CourseFormProps {
   onCancel?: () => void;
 }
 
-const CourseForm: React.FC<CourseFormProps> = ({
+const AddFollowUpForm: React.FC<AddFollowUpFormProps> = ({
   isUpdate,
   course,
   loading,
@@ -33,12 +28,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
   return (
     <Form>
       <ErrorRenderer errors={errors} />
-      <TextField {...fields.title} autoFocus />
-      <TextField {...fields.url} />
-      <TextAreaField {...fields.description} />
-      <NumberField {...fields.lessons} />
-      <NumberField {...fields.percentage} />
-      <NumberField {...fields.completed_lessons} />
+
       <Fieldset>
         {loading ? (
           <span>Loading...</span>
@@ -53,4 +43,4 @@ const CourseForm: React.FC<CourseFormProps> = ({
   );
 };
 
-export default CourseForm;
+export default AddFollowUpForm;

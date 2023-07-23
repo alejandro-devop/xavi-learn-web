@@ -12,3 +12,8 @@
 - [added]: Submit button component
 - [added]: lodash library
 - [added]: useForm hook
+- [added]: Font awesome
+- [added]: Styles base for menu and layout
+- [added]: Font awesome
+- [added]: Icons: faTag, faGauge, faGraduationCap, faCogs, faUser
+- [added]: Dialog component

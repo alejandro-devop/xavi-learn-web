@@ -1,0 +1,110 @@
+.dialog-overlay {
+    align-items: center;
+    backdrop-filter: blur(0);
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    animation: blurAnimation 0.6s ease forwards;
+
+    .dialog-frame {
+        opacity: 0;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        animation: slideAnimation 0.6s ease 0.6s forwards;
+        // animation: slideAnimation 0.6s ease forwards;
+
+        
+        .dialog-body {
+            padding: 20px;
+        }
+    
+        .dialog-footer {
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+        }
+        .dialog-header {
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+    
+            h3 {
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &.dialog-closed {
+        animation: blurOutAnimation 0.6s ease forwards;
+    }
+
+    &.dialog-closed {
+        .dialog-frame {
+            opacity: 1;
+            animation: slideOutAnimation 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+    }
+}
+
+
+
+@keyframes blurAnimation {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    to {
+        backdrop-filter: blur(3px);
+    }
+}
+
+@keyframes blurOutAnimation {
+    from {
+        backdrop-filter: blur(3px);
+    }
+    to {
+        backdrop-filter: blur(0px);
+        background-color: transparent;
+    }
+}
+
+@keyframes slideAnimation {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutAnimation {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}

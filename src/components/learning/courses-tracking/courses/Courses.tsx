@@ -1,19 +1,24 @@
-import { Button } from "components/buttons";
 import CoursesList from "./CoursesList";
 import { useState } from "react";
 import AddCourse from "./AddCourse";
+import Dialog from "components/dialogs/dialog/Dialog";
 
 const Courses: React.FC = () => {
-  const [openedAdd, setOpenedAdd] = useState(true);
+  const [openedAdd, setOpenedAdd] = useState(false);
   const toggleAdd = () => setOpenedAdd(!openedAdd);
+  console.log("Opened: ", openedAdd);
   return (
     <div>
       <p>Courses</p>
-      <div>
-        <Button onClick={toggleAdd}>Add course</Button>
-      </div>
-      {openedAdd && <AddCourse onCancel={toggleAdd} onSaved={toggleAdd} />}
-      {!openedAdd && <CoursesList />}
+      <CoursesList />
+      <Dialog
+        open={openedAdd}
+        title={"Some cool"}
+        // onClose={() => toggleAdd()}
+        disableFooter
+      >
+        <AddCourse onCancel={toggleAdd} onSaved={toggleAdd} />
+      </Dialog>
     </div>
   );
 };

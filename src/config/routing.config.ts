@@ -2,6 +2,7 @@ import { RoutesConfigType } from "routing/types";
 import {
   DashboardScreen,
   LearningScreen,
+  LearningFollowUpScreen,
   ProfileScreen,
   SettingsScreen,
 } from "screens/authenticated";
@@ -17,6 +18,7 @@ export const routeAliases = {
   register: "/register",
   dashboard: "/",
   learning: "/learning",
+  learningFollowUp: "/learning/followup",
   profile: "/profile",
   settings: "/settings",
 };
@@ -35,6 +37,7 @@ const routes: RoutesConfigType = {
     [routeAliases.learning]: LearningScreen,
     [routeAliases.profile]: ProfileScreen,
     [routeAliases.settings]: SettingsScreen,
+    [routeAliases.learningFollowUp]: LearningFollowUpScreen,
   },
 };
 

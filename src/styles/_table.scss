@@ -1,0 +1,40 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+// Table styles
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    // background-color: #fff;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  thead {
+  }
+
+  th {
+    &:first-child {
+        border-radius: 10px 0 0 0;
+    }
+    &:last-child {
+        border-radius: 0 10px 0 0;
+    }
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    // Add more styling here, like border, etc.
+  }
+  
+  // Table body row styles
+  td {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    // Add more styling here, like border, etc.
+  }
+  
+  // Optional: Hover effect for rows
+  tbody {
+        tr:hover {
+            // background-color: #f8f9fa;
+        }
+    }
+}
