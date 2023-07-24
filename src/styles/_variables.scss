@@ -10,3 +10,15 @@ $menu-layer: 9999;
 
 /* Toolbar */
 $toolbar-height: 60px;
+
+/** Buttons */
+// #4d4dff, #3655b3, #d3deff, #a6bcff, #ffffff
+$palette-main: #4d4dff;
+$palette-secondary: #3655b3;
+$palette-light-1: #d3deff;
+$palette-light-2: #a6bcff;
+$palette-bg: #ffffff;
+
+$button-default-bg: $palette-bg;
+$button-primary-bg: $palette-main;
+$button-secondary-bg: $palette-light-2;

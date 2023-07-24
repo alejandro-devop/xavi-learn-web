@@ -5,6 +5,7 @@ import {
   LearningFollowUpScreen,
   ProfileScreen,
   SettingsScreen,
+  TestingHallScreen,
   ViewCourseScreen,
 } from "screens/authenticated";
 import {
@@ -23,6 +24,7 @@ export const routeAliases = {
   coursesView: "/learning/courses/:courseId/view",
   profile: "/profile",
   settings: "/settings",
+  testingHall: "/testing-hall",
 };
 
 const routes: RoutesConfigType = {
@@ -41,6 +43,7 @@ const routes: RoutesConfigType = {
     [routeAliases.settings]: SettingsScreen,
     [routeAliases.learningFollowUp]: LearningFollowUpScreen,
     [routeAliases.coursesView]: ViewCourseScreen,
+    [routeAliases.testingHall]: TestingHallScreen,
   },
 };
 

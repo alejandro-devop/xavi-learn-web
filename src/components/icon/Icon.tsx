@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-type IconType = "tag" | "graduation-cap" | "cogs" | "user" | "gauge";
+type IconType = "cogs" | "flask" | "gauge" | "graduation-cap" | "user" | "tag";
 
 interface IconProps {
   icon?: IconType;

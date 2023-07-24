@@ -1,10 +1,11 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faTag,
+  faCogs,
+  faFlask,
   faGauge,
   faGraduationCap,
-  faCogs,
   faUser,
+  faTag,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCogs, faGauge, faGraduationCap, faTag, faUser);
+library.add(faCogs, faFlask, faGauge, faGraduationCap, faTag, faUser);

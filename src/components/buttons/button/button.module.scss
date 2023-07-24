@@ -1,0 +1,36 @@
+@import "styles/shared_modules.scss";
+
+.button {
+    border-color: $input-border;
+    // border-width: 2px;
+    margin: 0px 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow:  0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-weight: 400;
+    transition: background-color .6s;
+
+    &.default {
+        background-color: $button-default-bg;
+        &:hover {
+            background-color: #f1f1f1;
+        }
+    }
+
+    &.primary {
+        color: #FFF;
+        background-color: $button-primary-bg;
+        &:hover {
+            background-color: #{$button-primary-bg}b0;
+        }
+    }
+
+    &.secondary {
+        background-color: $palette-light-1;
+        color: $palette-main;
+    }
+
+    &.rounded {
+        border-radius: 40px;
+    }
+}

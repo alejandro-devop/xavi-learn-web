@@ -34,6 +34,10 @@ const Menu: React.FC = () => {
             <Icon icon="user" />
             <NavLink to="/profile">Profile</NavLink>
           </li>
+          <li>
+            <Icon icon="flask" />
+            <NavLink to="/testing-hall">Testing hall</NavLink>
+          </li>
         </ul>
       </div>
     </>
