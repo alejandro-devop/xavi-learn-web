@@ -1,26 +1,20 @@
 import { UseFormHookConfigType } from "hooks/use-form/types";
-import { CourseSchema } from "types/schemas/courses";
+import { CourseFollowUpSchema } from "types/schemas/courses";
 
 export default {
-  required: ["title"],
+  required: ["title", "content", "course_id"],
   fields: {
+    course_id: {
+      label: "Course",
+    },
     title: {
       label: "Title",
-    },
-    description: {
-      label: "Description",
     },
     url: {
       label: "URL",
     },
-    lessons: {
-      label: "Lessons",
-    },
-    completed_lessons: {
-      label: "Completed Lessons",
-    },
-    percentage: {
-      label: "Percentage",
+    content: {
+      label: "Content",
     },
   },
-} as UseFormHookConfigType<CourseSchema>;
+} as UseFormHookConfigType<CourseFollowUpSchema>;

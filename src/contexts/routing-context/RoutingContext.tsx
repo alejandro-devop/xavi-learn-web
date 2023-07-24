@@ -5,8 +5,11 @@ import { routeAliases } from "config/routing.config";
 export const RoutingCTX = createContext({
   logged: false,
   setLogged: (logged: boolean) => {},
-  goTo: (path: keyof typeof routeAliases) => {},
-  redirectTo: (path: keyof typeof routeAliases) => {},
+  goTo: (path: keyof typeof routeAliases, config?: RoutingConfigType) => {},
+  redirectTo: (
+    path: keyof typeof routeAliases,
+    config?: RoutingConfigType
+  ) => {},
   goBack: () => {},
 });
 export const RoutingCTXProvider = RoutingCTX.Provider;
@@ -16,17 +19,42 @@ interface RoutingContextProps {
   children?: React.ReactNode;
 }
 
+type RoutingConfigType = {
+  params?: { [key: string]: string };
+};
+
 const RoutingContext: React.FC<RoutingContextProps> = ({ children }) => {
   const [logged, setLogged] = useState(false);
   const navigate = useNavigate();
 
-  const goTo = (path: keyof typeof routeAliases) => {
-    const url = routeAliases[path];
+  const getUrl = (
+    path: keyof typeof routeAliases,
+    config?: RoutingConfigType
+  ) => {
+    let url = routeAliases[path];
+    const { params } = config || {};
+    if (params) {
+      Object.keys(params).forEach((key) => {
+        const value = params[key];
+        url = url.replace(`:${key}`, value);
+      });
+    }
+    return url;
+  };
+
+  const goTo = (
+    path: keyof typeof routeAliases,
+    config?: RoutingConfigType
+  ) => {
+    const url = getUrl(path, config);
     navigate(url);
   };
 
-  const redirectTo = (path: keyof typeof routeAliases) => {
-    const url = routeAliases[path];
+  const redirectTo = (
+    path: keyof typeof routeAliases,
+    config?: RoutingConfigType
+  ) => {
+    const url = getUrl(path, config);
     navigate(url, { replace: true });
   };
 

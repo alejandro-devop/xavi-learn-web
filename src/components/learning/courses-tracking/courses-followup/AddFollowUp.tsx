@@ -1,22 +1,22 @@
 import { usePost } from "contexts/api-context/hooks";
 import CourseForm from "./AddFollowUpForm";
-import { CourseSchema } from "types/schemas/courses";
+import { CourseFollowUpSchema } from "types/schemas/courses";
 
 interface AddFollowUpProps {
-  onSaved?: () => void;
+  onSaved?: (courseId?: string) => void;
   onCancel?: () => void;
 }
 
 const AddFollowUp: React.FC<AddFollowUpProps> = ({ onCancel, onSaved }) => {
   const [sendRequest, loading, { errors }] = usePost<
-    CourseSchema,
-    CourseSchema
-  >("courses.save");
-  const onSubmit = async (form: CourseSchema) => {
+    CourseFollowUpSchema,
+    CourseFollowUpSchema
+  >("courses.followUps.save");
+  const onSubmit = async (form: CourseFollowUpSchema) => {
     try {
-      const { status } = await sendRequest(form);
+      const { status, data } = await sendRequest(form);
       if (status) {
-        onSaved?.();
+        onSaved?.(data?.course_id);
       }
     } catch (e) {
       console.error(e);

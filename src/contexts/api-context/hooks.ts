@@ -92,9 +92,10 @@ export const useGetLazy = (
  * @returns
  */
 export const useGet = <ResponseType>(
-  endpoint: EndpointPathType
+  endpoint: EndpointPathType,
+  config?: ApiConfigType<{}>
 ): [ResponseType, boolean, { refetch: any }] => {
-  const [sendRequest, loading, { executed }] = useGetLazy(endpoint);
+  const [sendRequest, loading, { executed }] = useGetLazy(endpoint, config);
   const [dataFetched, setDataFetched] = useState<ResponseType>();
   const getData = useCallback(async () => {
     const { data } = await sendRequest();

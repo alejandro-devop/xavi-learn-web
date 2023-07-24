@@ -1,6 +1,6 @@
 import { useGet } from "contexts/api-context/hooks";
 import { CourseSchema } from "types/schemas/courses";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Dialog from "components/dialogs/dialog";
 import AddCourse from "./AddCourse";
 import { Button } from "components/buttons";
@@ -17,11 +17,23 @@ const CoursesList: React.FC = () => {
     refetch();
     toggleAdd();
   };
+  const handleActionCalled = useCallback(
+    (action: string, item: CourseSchema) => {
+      if (action === "view") {
+        goTo("coursesView", {
+          params: {
+            courseId: item.id,
+          },
+        });
+      }
+    },
+    [goTo]
+  );
+
   return (
     <>
       <div>
         <Button onClick={toggleAdd}>Add</Button>
-        <Button onClick={() => goTo("learningFollowUp")}>Add follow up</Button>
       </div>
       {loading && <p>Loading...</p>}
       <Table
@@ -40,6 +52,8 @@ const CoursesList: React.FC = () => {
           "percentage",
           "completed_lessons",
         ]}
+        actions={["view"]}
+        onActionCalled={handleActionCalled}
         data={courses}
       />
       {/* {courses?.map((course) => (

@@ -1,8 +1,10 @@
+import CoursesFollowup from "components/learning/courses-tracking/courses-followup";
+
 const LearningFollowUpScreen: ScreenType = () => {
   return (
-    <div>
-      <h3>Learning follow up</h3>
-    </div>
+    <>
+      <CoursesFollowup />
+    </>
   );
 };
 

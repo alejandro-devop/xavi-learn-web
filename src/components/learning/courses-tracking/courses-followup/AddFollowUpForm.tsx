@@ -1,34 +1,47 @@
 import { useForm } from "hooks";
 import config from "./form.config";
-import Form, { Fieldset } from "components/form";
+import Form, { Fieldset, TextField } from "components/form";
 import { Button } from "components/buttons";
-import { CourseSchema } from "types/schemas/courses";
+import { CourseFollowUpSchema } from "types/schemas/courses";
 import ErrorRenderer from "components/form/error-renderer";
+import MakrDownEditor from "./MarkDownEditor";
+import SelectSourceField from "components/form/select-source-field/SelectSourceField";
+import { useParams } from "react-router-dom";
 
 interface AddFollowUpFormProps {
   loading?: boolean;
   errors?: string[] | null;
   isUpdate?: boolean;
-  course?: CourseSchema;
-  onSubmit?: (form: CourseSchema) => void;
+  followUp?: CourseFollowUpSchema;
+  onSubmit?: (form: CourseFollowUpSchema) => void;
   onCancel?: () => void;
 }
 
 const AddFollowUpForm: React.FC<AddFollowUpFormProps> = ({
   isUpdate,
-  course,
+  followUp,
   loading,
   onCancel,
   onSubmit,
   errors,
 }) => {
+  const { courseId } = useParams();
   const [fields, form, { isValidForm }] = useForm(
-    isUpdate ? { ...config, defaultValues: course } : config
+    isUpdate
+      ? { ...config, defaultValues: followUp }
+      : { ...config, defaultValues: { course_id: courseId } }
   );
   return (
     <Form>
       <ErrorRenderer errors={errors} />
-
+      <SelectSourceField
+        source="courses.list"
+        mapTo={{ label: "title", value: "id" }}
+        {...fields.course_id}
+      />
+      <TextField {...fields.title} />
+      <TextField {...fields.url} />
+      <MakrDownEditor {...fields.content} />
       <Fieldset>
         {loading ? (
           <span>Loading...</span>

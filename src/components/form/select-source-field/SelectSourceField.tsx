@@ -8,11 +8,14 @@ interface SelectSourceFieldProps
   source: EndpointPathType;
   label?: string;
   mapTo?: { label: string; value: string };
+  error?: string | null;
 }
 
 const SelectSourceField: React.FC<SelectSourceFieldProps> = ({
+  label: inputLabel,
   source,
   mapTo,
+  error,
   ...props
 }) => {
   const [data, loading] = useGet<any[]>(source);
@@ -24,7 +27,7 @@ const SelectSourceField: React.FC<SelectSourceFieldProps> = ({
 
   return (
     <Fieldset>
-      <label htmlFor="source">Source</label>
+      {inputLabel && <label htmlFor="source">{inputLabel}</label>}
       {loading && <p>loading...</p>}
       <select name="source" id="source" {...props}>
         <option>Select an option</option>
@@ -34,6 +37,7 @@ const SelectSourceField: React.FC<SelectSourceFieldProps> = ({
           </option>
         ))}
       </select>
+      {error && <span className="form-error-msg">{error}</span>}
     </Fieldset>
   );
 };

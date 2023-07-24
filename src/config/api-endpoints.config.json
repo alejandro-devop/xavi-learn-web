@@ -12,5 +12,6 @@
   "courses.followUps.save": "post:/api/v1/course-followup",
   "courses.followUps.list": "get:/api/v1/course-followup/{course}",
   "courses.followUps.update": "put:/api/v1/course-followup/{id}",
-  "courses.followUps.remove": "delete:/api/v1/course-followup/{id}"
+  "courses.followUps.remove": "delete:/api/v1/course-followup/{id}",
+  "courses.view": "get:/api/v1/courses/{id}"
 }

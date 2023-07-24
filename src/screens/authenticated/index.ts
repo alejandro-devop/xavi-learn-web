@@ -3,6 +3,7 @@ import LearningScreen from "./learning-screen/LearningScreen";
 import ProfileScreen from "./profile-screen";
 import SettingsScreen from "./settings-screen";
 import LearningFollowUpScreen from "./learning-followup-screen";
+import ViewCourseScreen from "./courses/view-course-screen";
 
 export {
   DashboardScreen,
@@ -10,4 +11,5 @@ export {
   LearningFollowUpScreen,
   ProfileScreen,
   SettingsScreen,
+  ViewCourseScreen,
 };

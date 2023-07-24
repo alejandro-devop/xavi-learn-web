@@ -5,7 +5,7 @@ import { ChangeEvent } from "react";
  * Returned values from the hook
  */
 export type UseFormHookReturnType<FT extends object = {}> = [
-  Partial<Record<keyof FT, InputBaseProps>>,
+  Partial<Record<keyof FT, InputBaseProps | any>>,
   FT,
   {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
