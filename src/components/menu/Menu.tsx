@@ -1,11 +1,23 @@
 import Icon from "components/icon";
 import { NavLink } from "react-router-dom";
+import styles from "./menu.module.scss";
 
 const Menu: React.FC = () => {
   return (
     <>
-      <div id="main-side-bar">
-        <ul>
+      <div id="side-bar" className={styles.sideBar}>
+        <div className={styles.sideBarHeader}>
+          <div className={styles.sideBarHeaderLogoWrapper}>
+            <span></span>
+          </div>
+          <div className={styles.sideBarTitleWrapper}></div>
+        </div>
+        {/* <div className={styles.sideBarAvatarWrapper}>
+          <div className={styles.sideBarAvatar}></div>
+          <div className={styles.sideBarUserName}></div>
+          <div className={styles.sideBarUserName}></div>
+        </div> */}
+        <ul className={styles.sideBarMenu}>
           <li>
             <Icon icon="gauge" />
             <NavLink to="/dashboard">Dashboard</NavLink>

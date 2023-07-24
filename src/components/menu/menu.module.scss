@@ -1,0 +1,89 @@
+@import 'styles/shared_modules.scss';
+
+.sideBar {
+    background-color: $menu-bg;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    width: $menu-desktop-width;
+    z-index: $menu-layer;
+    overflow-y: auto;
+
+    &Header {
+        align-items: flex-end;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        margin-top: 5px;
+        width: 100%;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+    }
+
+    &HeaderLogoWrapper {
+        background-color: rgba(0,0,0,0.1);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    &TitleWrapper {
+        border-radius: 50px;
+        background-color: rgba(0,0,0,0.1);
+        flex: 1;
+        height: 50px;
+        margin-left: 5px;
+    }
+
+    // &AvatarWrapper {
+    //     align-items: center;
+    //     display: flex;
+    //     padding: 0px 30px;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     margin-bottom: 20px;
+    // }
+
+    // &Avatar {
+    //     width: 100px;
+    //     height: 100px;
+    //     border-radius: 50%;
+    //     background-color: rgba(0,0,0,0.1);
+    //     margin-bottom: 10px;
+    // }
+
+    // &UserName {
+    //     background-color: rgba(0,0,0,0.1);
+    //     border-radius: 20px;
+    //     width: 100%;
+    //     height: 20px;
+    //     margin-bottom: 10px;
+    // }
+
+    &Menu {
+        &, & li {
+            width: 100%;
+            padding: 0px 10px;
+        }
+        
+        & > li {
+            display: flex;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color .6s;
+            margin-bottom: 10px;
+            &:hover {
+                background-color: rgba(0,0,0,0.08);
+            }
+            & svg {
+                height: 20px;
+                font-size: 1.2rem;
+                width: 20px;
+            }
+            a {
+                flex: 1;
+                margin-left: 20px;
+            }
+        }
+    }
+}
