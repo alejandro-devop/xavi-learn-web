@@ -1,14 +1,22 @@
 @import "styles/shared_modules.scss";
 
+$button-height: 45px;
 .button {
     border-color: $input-border;
     // border-width: 2px;
+    display: inline-flex;
+    align-items: center;
     margin: 0px 5px;
-    padding: 10px 20px;
+    padding: 0px;
+    min-height: $button-height;
     border-radius: 10px;
     box-shadow:  0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-weight: 400;
     transition: background-color .6s;
+
+    .buttonContent {
+        padding: 0px 20px;
+    }
 
     &.default {
         background-color: $button-default-bg;
@@ -32,5 +40,24 @@
 
     &.rounded {
         border-radius: 40px;
+    }
+
+    .iconWrapper {
+        margin-right: 10px;
+        border-radius: 10px;
+        display: inline-flex;
+        width: $button-height;
+        height: $button-height;
+        background-color: rgba(0,0,0,0.07);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .iconWrapperRounded {
+        border-radius: 40px;   
+    }
+
+    .icon {
+        font-size: 1.3rem;
     }
 }

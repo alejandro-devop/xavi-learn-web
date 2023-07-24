@@ -1,4 +1,10 @@
 .testingHallRoot {
     display: flex;
     flex: 1;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 20px;
 }
