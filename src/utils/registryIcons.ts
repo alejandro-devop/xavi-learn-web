@@ -1,11 +1,44 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faAdd,
+  faAnglesLeft,
+  faAnglesRight,
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
+  faChevronUp,
   faCogs,
+  faEdit,
+  faEye,
+  faFilter,
   faFlask,
   faGauge,
   faGraduationCap,
-  faUser,
+  faSearch,
   faTag,
+  faTimes,
+  faTrash,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCogs, faFlask, faGauge, faGraduationCap, faTag, faUser);
+library.add(
+  faAdd,
+  faAnglesLeft,
+  faAnglesRight,
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
+  faChevronUp,
+  faCogs,
+  faFilter,
+  faEdit,
+  faEye,
+  faFlask,
+  faGauge,
+  faGraduationCap,
+  faSearch,
+  faTag,
+  faTimes,
+  faTrash,
+  faUser
+);

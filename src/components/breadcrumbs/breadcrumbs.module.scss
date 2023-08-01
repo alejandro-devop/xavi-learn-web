@@ -1,0 +1,32 @@
+@import "styles/shared_modules.scss";
+
+.breadcrumbs {
+    background-color: rgba(0,0,0,0.05);
+    padding: .4rem 1rem;
+    // border-radius: 0 0 20px 20px;
+    ul {
+        display: flex;
+        li {
+            &.separator {
+                margin: 0 .5rem;
+                color: rgba(0,0,0,0.3);
+            }
+            &.item {
+                background-color: rgba(0,0,0,0.1);
+                border-radius: 20px;
+                cursor: pointer;
+                // margin-right: .5rem;
+                padding: .2rem 1rem;
+            }
+            &.separator, &.item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &.withLink {
+                background-color: $palette-secondary;
+                color: #FFF;
+            }
+        }
+    }
+}

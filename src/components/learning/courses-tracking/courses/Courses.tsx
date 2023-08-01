@@ -1,12 +1,7 @@
 import CoursesList from "./CoursesList";
 
 const Courses: React.FC = () => {
-  return (
-    <div>
-      <p>Courses</p>
-      <CoursesList />
-    </div>
-  );
+  return <CoursesList />;
 };
 
 export default Courses;

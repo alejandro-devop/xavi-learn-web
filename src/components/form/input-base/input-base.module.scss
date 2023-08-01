@@ -1,0 +1,17 @@
+@import 'styles/shared_modules.scss';
+
+
+.inputBase {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $input-border;
+    border-radius: 20px;
+    padding: .2rem 1rem;
+    margin: 0px 0px 10px 0px;
+    min-height: $input-height;
+}
+
+.formErrorMsg {
+    color: red;
+    font-size: 0.9rem;
+}

@@ -5,7 +5,8 @@ import classNames from "classnames";
 import { IconType } from "components/icon/Icon";
 import Icon from "components/icon";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rounded?: boolean;
   variant?: "primary" | "secondary" | "default";
   icon?: IconType;
@@ -43,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
             className={classNames(styles.icon, {
               [styles.iconRounded]: rounded,
             })}
+            icon={icon}
           />
         </span>
       )}

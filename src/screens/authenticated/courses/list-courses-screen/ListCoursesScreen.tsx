@@ -1,27 +1,29 @@
 import Breadcrumbs from "components/breadcrumbs";
-import { Button } from "components/buttons";
+import Courses from "components/learning/courses-tracking/courses";
 import { PageTitle } from "components/page";
-import { useRouting } from "hooks";
 // import CoursesFollowup from "components/learning/courses-tracking/courses-followup";
 // import LearningTracking from "components/learning/learning-tracking";
 // import Programming from "components/learning/programming";
 
-const LearningScreen: ScreenType = () => {
-  const { goTo } = useRouting();
+const ListCoursesScreen: ScreenType = () => {
   return (
     <>
       <Breadcrumbs
         crumbs={[
           { label: "Home", path: "dashboard" },
           { label: "Learning", path: "learning" },
+          { label: "Courses" },
         ]}
       />
       <PageTitle title="Learning" subtitle="Courses" />
       <div className="content-wrapper">
-        <Button onClick={() => goTo("coursesList")}>Go to courses</Button>
+        <Courses />
       </div>
+      {/* <CoursesFollowup />
+      <LearningTracking />
+      <Programming /> */}
     </>
   );
 };
 
-export default LearningScreen;
+export default ListCoursesScreen;

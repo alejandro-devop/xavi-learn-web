@@ -13,20 +13,10 @@ table {
   thead {
   }
 
-  th {
-    &:first-child {
-        border-radius: 10px 0 0 0;
-    }
-    &:last-child {
-        border-radius: 0 10px 0 0;
-    }
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    // Add more styling here, like border, etc.
-  }
   
   // Table body row styles
   td {
-    padding: 0.75rem 1rem;
+    
     border: 1px solid rgba(0, 0, 0, 0.2);
     // Add more styling here, like border, etc.
   }

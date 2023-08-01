@@ -1,17 +1,24 @@
-import { Button } from "components/buttons";
+import IconButton from "components/buttons/icon-button";
 import { useCallback } from "react";
+import styles from "./table.module.scss";
+import TableFilters from "./TableFilters";
+import TableActions from "./TableActions";
+import TableFooter from "./TableFooter";
+import { ActionType } from "./types";
 
 interface TableProps {
+  tableActions?: ActionType[];
   colLabels?: { [k: string]: string };
   columns: string[];
   data?: { [k: string]: any }[];
   title?: string;
-  actions?: string[];
+  actions?: ActionType[];
   onActionCalled?: (action: string, item: any) => void;
+  onTableActionCalled?: (action: string, item: any) => void;
 }
 
 interface RenderRowProps {
-  actions?: string[];
+  actions?: ActionType[];
   handleAction: (action: string, item: any) => void;
   rowId: string;
   cols: string[];
@@ -32,13 +39,12 @@ const RenderRow: React.FC<RenderRowProps> = ({
       ))}
       {actions?.length && (
         <td>
-          {actions.map((action, index) => (
-            <Button
-              onClick={() => handleAction(action, data)}
-              key={`${index}-${action}`}
-            >
-              {action}
-            </Button>
+          {actions.map((item, index) => (
+            <IconButton
+              icon={item.icon}
+              onClick={() => handleAction(item.action, data)}
+              key={`${index}-${item.action}`}
+            />
           ))}
         </td>
       )}
@@ -51,24 +57,35 @@ const Table: React.FC<TableProps> = ({
   data,
   colLabels = {},
   columns,
-  title,
   onActionCalled,
+  onTableActionCalled,
+  tableActions,
 }) => {
-  const handleActionTriggered = useCallback((action: string, item: any) => {
-    onActionCalled?.(action, item);
-  }, []);
+  const handleActionTriggered = useCallback(
+    (action: string, item: any) => {
+      onActionCalled?.(action, item);
+    },
+    [onActionCalled]
+  );
+
   return (
-    <div>
-      {title && (
-        <div>
-          <h3>{title}</h3>
+    <div className={styles.table}>
+      <div className={styles.tableToolbar}>
+        <div className={styles.tableToolbarLeft}>
+          <TableFilters />
         </div>
-      )}
+        <div className={styles.tableToolbarRight}>
+          <TableActions
+            actions={tableActions}
+            onActionCalled={onTableActionCalled}
+          />
+        </div>
+      </div>
       <table>
         <thead>
           <tr>
             {columns.map((col, index) => (
-              <th key={`title-${index}`}>{colLabels[col] || col}</th>
+              <th key={`title-${index}`}><span>{colLabels[col] || col}</span></th>
             ))}
             {actions?.length && <th>Actions</th>}
           </tr>
@@ -86,6 +103,7 @@ const Table: React.FC<TableProps> = ({
           ))}
         </tbody>
       </table>
+      <TableFooter />
     </div>
   );
 };

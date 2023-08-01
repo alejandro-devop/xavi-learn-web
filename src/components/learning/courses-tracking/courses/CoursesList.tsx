@@ -13,13 +13,16 @@ const CoursesList: React.FC = () => {
   const { goTo } = useRouting();
   const [openedAdd, setOpenedAdd] = useState(false);
   const toggleAdd = () => setOpenedAdd(!openedAdd);
+
   const handleSaved = () => {
     refetch();
     toggleAdd();
   };
   const handleActionCalled = useCallback(
     (action: string, item: CourseSchema) => {
-      if (action === "view") {
+      if (action === "add") {
+        toggleAdd();
+      } else if (action === "view") {
         goTo("coursesView", {
           params: {
             courseId: item.id,
@@ -27,17 +30,25 @@ const CoursesList: React.FC = () => {
         });
       }
     },
-    [goTo]
+    [goTo, toggleAdd]
   );
 
   return (
     <>
-      <div>
-        <Button onClick={toggleAdd}>Add</Button>
-      </div>
       {loading && <p>Loading...</p>}
       <Table
         title="List of courses"
+        tableActions={[
+          {
+            action: "add",
+            label: "Add course",
+            icon: "add",
+            buttonProps: {
+              variant: "primary",
+              rounded: true,
+            },
+          },
+        ]}
         colLabels={{
           title: "Title",
           description: "Description",
@@ -52,7 +63,12 @@ const CoursesList: React.FC = () => {
           "percentage",
           "completed_lessons",
         ]}
-        actions={["view"]}
+        actions={[
+          { action: "view", icon: "eye" },
+          { action: "delete", icon: "edit" },
+          { action: "remove", icon: "trash" },
+        ]}
+        onTableActionCalled={handleActionCalled}
         onActionCalled={handleActionCalled}
         data={courses}
       />

@@ -1,0 +1,20 @@
+@import 'styles/shared_modules.scss';
+
+.inputWithIcon {
+    position: relative;
+    &, .inputWithIconIcon {
+        display: flex;
+    }
+}
+.inputWithIconIcon {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    justify-content: center;
+    position: absolute;
+    width: $input-height;
+    height: $input-height;
+}
+.inputWithIconInput {
+    padding-left: $input-height + 10px;
+}

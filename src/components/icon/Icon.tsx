@@ -1,12 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export type IconType =
+  | "add"
+  | "angles-left"
+  | "angles-right"
+  | "chevron-left"
+  | "chevron-right"
+  | "chevron-up"
+  | "chevron-down"
   | "cogs"
+  | "eye"
+  | "edit"
+  | "filter"
   | "flask"
   | "gauge"
   | "graduation-cap"
-  | "user"
-  | "tag";
+  | "search"
+  | "tag"
+  | "times"
+  | "trash"
+  | "user";
 
 interface IconProps {
   className?: string;

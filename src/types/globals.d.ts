@@ -1,8 +1,10 @@
+import { routeAliases } from "config/routing.config";
 declare global {
   type ScreenConfigType = {
     title?: string;
   };
   type ScreenType = React.FC<ScreenConfigType>;
+  type RoutePath = keyof typeof routeAliases;
   type SessionType = {
     user?: {
       name?: string;

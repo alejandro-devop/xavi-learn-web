@@ -1,16 +1,23 @@
 import React from "react";
 import { InputBaseProps } from "./types";
 import { Fieldset, Label } from "components/form";
-
+import classNames from "classnames";
+import styles from "./input-base.module.scss";
 /**
  * Facade for the html input element. It is used to create inputs.
  * any common functionality can be implemented here
  * @param param0
  * @returns
  */
-const InputBase: React.FC<InputBaseProps> = ({ error, label, ...props }) => {
+const InputBase: React.FC<InputBaseProps> = ({
+  className,
+  error,
+  label,
+  ...props
+}) => {
   const inputRender = (
     <input
+      className={classNames(styles.inputBase, className)}
       name={props?.name || props?.id}
       {...props}
       onChange={props?.onChange || (() => null)}
@@ -25,7 +32,7 @@ const InputBase: React.FC<InputBaseProps> = ({ error, label, ...props }) => {
           {label}
         </Label>
         {inputRender}
-        {error && <span className="form-error-msg">{error}</span>}
+        {error && <span className={styles.formErrorMsg}>{error}</span>}
       </Fieldset>
     );
   }

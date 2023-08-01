@@ -1,0 +1,30 @@
+@import "styles/shared_modules.scss";
+/* background-color: rgba(0,0,0,0.08); */
+
+$button-height: 35px;
+
+.buttonSkeleton {
+    min-width: 120px;
+    height: $button-height;
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.08);
+    margin: 0px 10px;
+}
+
+.inputWithIconSkeleton {
+    display: flex;
+}
+.inputIcon {
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 50%;
+    margin-right: 10px;
+    width: $button-height;
+    height: $button-height;
+}
+.inputSkeleton {
+    flex-grow: 1;
+    height: $button-height;
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.08);
+    margin-right: 10px;
+}
