@@ -1,27 +1,35 @@
+import { useState } from "react";
 import { useGet } from "contexts/api-context/hooks";
-import { CourseSchema } from "types/schemas/courses";
+import { CourseFollowUpSchema, CourseSchema } from "types/schemas/courses";
 import FollowUpItem from "./FollowUpItem";
 import { Button } from "components/buttons";
 import { useRouting } from "hooks";
 import DetailTable from "components/detail-table/DetailTable";
+import MDEditor from "@uiw/react-md-editor";
 
 interface ViewCourseProps {
   courseId: string;
 }
 const ViewCourse: React.FC<ViewCourseProps> = ({ courseId }) => {
   const { goTo } = useRouting();
+  const [selectedItem, setSelectedItem] = useState<CourseFollowUpSchema>();
+
   const [data, loading] = useGet<CourseSchema>("courses.view", {
     replacements: {
       id: courseId,
     },
   });
 
+  const handleView = (item: CourseFollowUpSchema) => {
+    setSelectedItem(item);
+  };
+
   if (loading || !data) {
     return null;
   }
   return (
-    <>
-      <div className="w-1/2">
+    <div className="flex">
+      <div className="flex-1">
         <DetailTable
           data={[
             { label: "Title", value: data.title },
@@ -43,12 +51,15 @@ const ViewCourse: React.FC<ViewCourseProps> = ({ courseId }) => {
             Add followup
           </Button>
         </div>
+        {data?.follow_ups &&
+          data?.follow_ups.map((item) => (
+            <FollowUpItem key={item.id} item={item} onView={handleView} />
+          ))}
       </div>
-      {data?.follow_ups &&
-        data?.follow_ups.map((item) => (
-          <FollowUpItem key={item.id} item={item} />
-        ))}
-    </>
+      <div className="flex-1 p-2">
+        {selectedItem && <MDEditor.Markdown source={selectedItem.content} />}
+      </div>
+    </div>
   );
 };
 
