@@ -3,6 +3,7 @@ import { CourseSchema } from "types/schemas/courses";
 import FollowUpItem from "./FollowUpItem";
 import { Button } from "components/buttons";
 import { useRouting } from "hooks";
+import DetailTable from "components/detail-table/DetailTable";
 
 interface ViewCourseProps {
   courseId: string;
@@ -20,21 +21,29 @@ const ViewCourse: React.FC<ViewCourseProps> = ({ courseId }) => {
   }
   return (
     <>
-      <h1>{data.title}</h1>
-      <p>{data.description}</p>
-      <p>{data.url}</p>
-      <p>Lessons: {data.lessons}</p>
-      <p>Completed: {data.completed_lessons}</p>
-      <p>percentage: {data.percentage}</p>
-      <hr />
-      <h2>Follow ups</h2>
-      <Button
-        onClick={() =>
-          goTo("learningFollowUp", { params: { courseId: courseId } })
-        }
-      >
-        Add
-      </Button>
+      <div className="w-1/2">
+        <DetailTable
+          data={[
+            { label: "Title", value: data.title },
+            { label: "Description", value: data.description },
+            { label: "Url", value: data.url },
+            { label: "Lessons", value: data.lessons },
+            { label: "Progress", value: data.completed_lessons },
+            { label: "Percentage", value: data.percentage },
+          ]}
+        />
+        <div className="flex justify-end">
+          <Button
+            variant="primary"
+            icon="add"
+            onClick={() =>
+              goTo("learningFollowUp", { params: { courseId: courseId } })
+            }
+          >
+            Add followup
+          </Button>
+        </div>
+      </div>
       {data?.follow_ups &&
         data?.follow_ups.map((item) => (
           <FollowUpItem key={item.id} item={item} />
