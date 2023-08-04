@@ -20,4 +20,5 @@ export type CourseFollowUpSchema = {
   created_at?: string;
   course_id?: string;
   updated_at?: string;
+  complete_lesson?: boolean;
 };

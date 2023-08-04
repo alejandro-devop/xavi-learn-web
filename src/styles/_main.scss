@@ -10,3 +10,16 @@ main#root {
     left: $menu-desktop-width;
     position: relative;
 }
+
+.wmde-markdown {
+    ul {
+        li {
+            list-style-type: disc;
+        }
+    }
+    ol {
+        li {
+            list-style-type: decimal;
+        }
+    }
+}

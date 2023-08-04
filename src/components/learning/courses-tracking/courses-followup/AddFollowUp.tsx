@@ -14,7 +14,10 @@ const AddFollowUp: React.FC<AddFollowUpProps> = ({ onCancel, onSaved }) => {
   >("courses.followUps.save");
   const onSubmit = async (form: CourseFollowUpSchema) => {
     try {
-      const { status, data } = await sendRequest(form);
+      const { status, data } = await sendRequest({
+        ...form,
+        complete_lesson: true,
+      });
       if (status) {
         onSaved?.(data?.course_id);
       }

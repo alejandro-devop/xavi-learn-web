@@ -1,12 +1,13 @@
 import { useForm } from "hooks";
 import config from "./form.config";
-import Form, { Fieldset, TextField } from "components/form";
+import Form, { Fieldset, Label, TextField } from "components/form";
 import { Button } from "components/buttons";
 import { CourseFollowUpSchema } from "types/schemas/courses";
 import ErrorRenderer from "components/form/error-renderer";
 import MakrDownEditor from "./MarkDownEditor";
 import SelectSourceField from "components/form/select-source-field/SelectSourceField";
 import { useParams } from "react-router-dom";
+import styles from "./form.module.scss";
 
 interface AddFollowUpFormProps {
   loading?: boolean;
@@ -41,7 +42,10 @@ const AddFollowUpForm: React.FC<AddFollowUpFormProps> = ({
       />
       <TextField {...fields.title} />
       <TextField {...fields.url} />
-      <MakrDownEditor {...fields.content} />
+      <div className={styles.markDownEditor}>
+        <Label>Notes: </Label>
+        <MakrDownEditor {...fields.content} />
+      </div>
       <Fieldset>
         {loading ? (
           <span>Loading...</span>

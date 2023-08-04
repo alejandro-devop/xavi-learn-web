@@ -71,7 +71,8 @@ $bar-size: 8px;
         border-color: $palette-main;
         width: $caret-size;
         height: $caret-size;
-        transform: translateX($caret-size / 2 - $bar-size / 2);
+        transform: translateX(calc($caret-size / 2 - $bar-size / 2));
+        // transform: translateX(calc(math.div($caret-size, 2) - math.div($bar-size, 2)));
         border-radius: 50%;
     }
 }
