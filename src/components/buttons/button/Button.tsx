@@ -27,7 +27,8 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <ButtonBase
-      className={classNames(styles.button, styles.default, {
+      className={classNames(styles.button, {
+        [styles.default]: variant === "default",
         [styles.primary]: variant === "primary",
         [styles.secondary]: variant === "secondary",
         [styles.rounded]: rounded,

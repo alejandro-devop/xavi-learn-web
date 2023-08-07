@@ -11,7 +11,7 @@ $bar-size: 8px;
 .followUpWrapper {
     background-color: #FFF;
     flex: 1;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -58,7 +58,7 @@ $bar-size: 8px;
         height: 10px;
     }
     &::before {
-        background-color: $palette-main;
+        background-color: $palette-light-2;
         height: 100%;
         width: $bar-size;
         border-radius: 20px;
@@ -68,7 +68,7 @@ $bar-size: 8px;
         border-width: 4px;
         background-color: #FFF;
         border-style: solid;
-        border-color: $palette-main;
+        border-color: $palette-light-2;
         width: $caret-size;
         height: $caret-size;
         transform: translateX(calc($caret-size / 2 - $bar-size / 2));
