@@ -9,17 +9,15 @@ const MakrDownEditor: React.FC<InputBaseProps> = ({
     props?.onChange?.({ target: { name, value } } as any);
   };
   return (
-    <div className="flex">
-      <div className="flex-1">
-        <MDEditor
-          value={value as string}
-          onChange={handleChange}
-          components={{
-            toolbar: () => null,
-          }}
-          height={600}
-        />
-      </div>
+    <div className="mb-4">
+      <MDEditor
+        value={value as string}
+        onChange={handleChange}
+        components={{
+          toolbar: () => null,
+        }}
+        height={600}
+      />
     </div>
   );
 };

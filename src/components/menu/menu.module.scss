@@ -47,10 +47,10 @@
         
         & > li {
             display: flex;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 10px 10px;
             transition: background-color .6s;
-            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+
             &:hover {
                 background-color: rgba(0,0,0,0.08);
             }
@@ -61,7 +61,7 @@
             }
             a {
                 flex: 1;
-                margin-left: 20px;
+                margin-left: 10px;
             }
         }
     }

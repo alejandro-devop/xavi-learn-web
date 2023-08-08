@@ -12,11 +12,6 @@ const Menu: React.FC = () => {
           </div>
           <div className={styles.sideBarTitleWrapper}></div>
         </div>
-        {/* <div className={styles.sideBarAvatarWrapper}>
-          <div className={styles.sideBarAvatar}></div>
-          <div className={styles.sideBarUserName}></div>
-          <div className={styles.sideBarUserName}></div>
-        </div> */}
         <ul className={styles.sideBarMenu}>
           <li>
             <Icon icon="gauge" />

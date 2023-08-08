@@ -26,15 +26,14 @@ const AddFollowUp: React.FC<AddFollowUpProps> = ({ onCancel, onSaved }) => {
     }
   };
   return (
-    <div>
-      <h3>Add course</h3>
+    <>
       <CourseForm
         loading={loading}
         onCancel={onCancel}
         errors={errors}
         onSubmit={onSubmit}
       />
-    </div>
+    </>
   );
 };
 

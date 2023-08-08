@@ -7,6 +7,12 @@ import classNames from "classnames";
 
 interface CheckboxFieldProps extends InputBaseProps {}
 
+/**
+ * Component to render a checkbox field
+ *
+ * @param param0
+ * @returns
+ */
 const CheckboxField: React.FC<CheckboxFieldProps> = ({
   label,
   error,

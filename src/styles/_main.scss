@@ -2,6 +2,9 @@ main#root {
     display: flex;
     height: 100vh;
     background-color: $main-bg;
+    position: fixed;
+    width: 100%;
+    overflow-y: auto;
 }
 
 #content {

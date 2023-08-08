@@ -33,30 +33,38 @@ const AddFollowUpForm: React.FC<AddFollowUpFormProps> = ({
       : { ...config, defaultValues: { course_id: courseId } }
   );
   return (
-    <Form>
-      <ErrorRenderer errors={errors} />
-      <SelectSourceField
-        source="courses.list"
-        mapTo={{ label: "title", value: "id" }}
-        {...fields.course_id}
-      />
-      <TextField {...fields.title} />
-      <TextField {...fields.url} />
-      <div className={styles.markDownEditor}>
-        <Label>Notes: </Label>
-        <MakrDownEditor {...fields.content} />
-      </div>
-      <Fieldset>
-        {loading ? (
-          <span>Loading...</span>
-        ) : (
-          <Button disabled={!isValidForm} onClick={() => onSubmit?.(form)}>
-            {isUpdate ? "Update" : "Add"}
-          </Button>
-        )}
-        <Button onClick={onCancel}>Cancel</Button>
-      </Fieldset>
-    </Form>
+    <div className={styles.root}>
+      <Form>
+        <ErrorRenderer errors={errors} />
+        <div className="w-full md:w-1/3">
+          <SelectSourceField
+            source="courses.list"
+            mapTo={{ label: "title", value: "id" }}
+            {...fields.course_id}
+          />
+          <TextField {...fields.title} />
+          <TextField {...fields.url} />
+        </div>
+        <div className={styles.markDownEditor}>
+          <Label>Notes: </Label>
+          <MakrDownEditor {...fields.content} />
+        </div>
+        <Fieldset>
+          {loading ? (
+            <span>Loading...</span>
+          ) : (
+            <Button
+              variant="primary"
+              disabled={!isValidForm}
+              onClick={() => onSubmit?.(form)}
+            >
+              {isUpdate ? "Update" : "Add"}
+            </Button>
+          )}
+          <Button onClick={onCancel}>Cancel</Button>
+        </Fieldset>
+      </Form>
+    </div>
   );
 };
 
