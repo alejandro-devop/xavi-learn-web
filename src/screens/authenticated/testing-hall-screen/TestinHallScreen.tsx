@@ -2,11 +2,22 @@ import { Button } from "components/buttons";
 import styles from "./testing-hall.module.scss";
 import Table from "components/table/Table";
 import { InsidesLayout } from "layouts";
+import {
+  CheckboxField,
+  EmailField,
+  NumberField,
+  PasswordField,
+  TextAreaField,
+  TextField,
+} from "components/form";
 
 const TestingHallScreen: React.FC = () => {
   return (
     <InsidesLayout
-      crumbs={[{label: 'Home', path: 'dashboard'}, {label: 'Testing Hall', path: 'testingHall'}]}
+      crumbs={[
+        { label: "Home", path: "dashboard" },
+        { label: "Testing Hall", path: "testingHall" },
+      ]}
       title="Testing Hall"
       subtitle="all components "
     >
@@ -34,6 +45,43 @@ const TestingHallScreen: React.FC = () => {
           <Button variant="secondary" rounded>
             Secondary (Rounded)
           </Button>
+        </div>
+        <div className={styles.row}>
+          <div className="w-full md:w-1/4 px-2">
+            <TextField
+              id="field-1"
+              label="Text field"
+              placeholder="Some place holder"
+              value={""}
+            />
+            <EmailField
+              id="field-2"
+              label="Email field"
+              placeholder="Enter an e-mail"
+              value={""}
+            />
+            <PasswordField
+              id="Password"
+              label="Password"
+              placeholder="Enter a password"
+              value={"jkrules"}
+            />
+            <NumberField
+              id="number"
+              label="Number"
+              placeholder="Enter a number"
+              value={0}
+            />
+            <CheckboxField label="Some check" />
+            <CheckboxField label="Another check" />
+          </div>
+          <div className="w-full md:w-1/4 px-2">
+            <TextAreaField
+              label="Text area"
+              onChange={() => null}
+              placeholder="somegood description"
+            />
+          </div>
         </div>
         <div className={styles.row}>
           <div className={styles.col}>

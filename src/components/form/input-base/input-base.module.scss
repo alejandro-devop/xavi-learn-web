@@ -2,16 +2,40 @@
 
 
 .inputBase {
-    border-width: 1px;
-    border-style: solid;
-    border-color: $input-border;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: .2rem 1rem;
     margin: 0px 0px 10px 0px;
     min-height: $input-height;
+    width: 100%;
+    border-bottom: 1px solid $input-border;
+
+    &[type="number"] {
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .formErrorMsg {
     color: red;
     font-size: 0.9rem;
+}
+
+.inputFieldSet {
+    
+}
+
+.inputLabel {
+    color: $palette-secondary;
+}
+
+.filled {
+    background-color: #{$palette-light-1} + "63";
+    border: none;
 }

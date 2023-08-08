@@ -7,8 +7,8 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
  * @param param0
  * @returns
  */
-const Label: React.FC<LabelProps> = ({ children }) => {
-  return <label>{children}</label>;
+const Label: React.FC<LabelProps> = ({ children, ...props }) => {
+  return <label {...props}>{children}</label>;
 };
 
 export default React.memo(Label);

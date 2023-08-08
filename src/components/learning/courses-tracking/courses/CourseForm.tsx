@@ -37,17 +37,20 @@ const CourseForm: React.FC<CourseFormProps> = ({
       <TextField {...fields.url} />
       <TextAreaField {...fields.description} />
       <NumberField {...fields.lessons} />
-      <NumberField {...fields.percentage} />
       <NumberField {...fields.completed_lessons} />
       <Fieldset>
+        <Button onClick={onCancel}>Cancel</Button>
         {loading ? (
           <span>Loading...</span>
         ) : (
-          <Button disabled={!isValidForm} onClick={() => onSubmit?.(form)}>
+          <Button
+            variant="primary"
+            disabled={!isValidForm}
+            onClick={() => onSubmit?.(form)}
+          >
             {isUpdate ? "Update" : "Add"}
           </Button>
         )}
-        <Button onClick={onCancel}>Cancel</Button>
       </Fieldset>
     </Form>
   );

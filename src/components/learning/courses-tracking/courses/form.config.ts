@@ -15,12 +15,15 @@ export default {
     },
     lessons: {
       label: "Lessons",
+      default: 0,
     },
     completed_lessons: {
       label: "Completed Lessons",
+      default: 0,
     },
-    percentage: {
-      label: "Percentage",
-    },
+    // percentage: {
+    //   label: "Percentage",
+    //   default: 0,
+    // },
   },
 } as UseFormHookConfigType<CourseSchema>;

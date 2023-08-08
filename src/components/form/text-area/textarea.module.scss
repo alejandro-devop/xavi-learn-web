@@ -1,0 +1,28 @@
+@import 'styles/shared_modules.scss';
+
+.textAreaRoot {
+    width: 100%;
+}
+
+.textArea {
+    display: block;
+    border-radius: 5px;
+    padding: .2rem 1rem;
+    margin: 0px 0px 10px 0px;
+    min-height: $input-height;
+    width: 100%;
+    border-bottom: 1px solid $input-border;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.filled {
+    background-color: #{$palette-light-1} + "63";
+    border: none;
+}
+
+.inputLabel {
+    color: $palette-secondary;
+}

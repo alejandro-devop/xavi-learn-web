@@ -14,4 +14,13 @@ $icon-button-size: 30px;
         background-color: $button-primary-bg;
         color: #FFF;
     }
+
+    &:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+        color: #000;
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    
 }

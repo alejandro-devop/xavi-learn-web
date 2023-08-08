@@ -1,0 +1,43 @@
+@import 'styles/shared_modules.scss';
+
+.wrapper {
+    margin-bottom: .5rem;
+}
+$check-box-size: 20px;
+.input {
+    margin-right: 1.5rem;
+    opacity: 0;
+    position: relative;
+}
+
+.inputLabel {
+    position: relative;
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        width: $check-box-size;
+        height: $check-box-size;
+        left: 0;
+        top: 0;
+        transform: translateX(- calc($check-box-size * 1.50));
+    }
+    &:before {
+        background-color: $palette-light-2;
+        border-radius: 4px;
+    }
+
+    &.checked {
+        &:before {
+            background-color: $palette-main;
+        }
+        &:after {
+            border-right: 2px solid #FFF;
+            border-bottom: 2px solid #FFF;
+            width: calc($check-box-size * 0.3);
+            height: calc($check-box-size * 0.6);
+            transform: rotate(45deg) translate(-14px, 18px);
+            transform-origin: center;
+        }
+    }
+}

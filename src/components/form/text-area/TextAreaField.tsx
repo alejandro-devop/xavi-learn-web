@@ -1,5 +1,6 @@
 import Fieldset from "../fieldset/Fieldset";
 import Label from "../label";
+import styles from "./textarea.module.scss";
 
 interface TextAreaFieldProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -14,12 +15,20 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
   ...props
 }) => {
   return (
-    <Fieldset>
-      {label && <Label>{label}</Label>}
-      <textarea {...props} value={value || ""} />
+    <Fieldset className={styles.textAreaRoot}>
+      {label && (
+        <Label className={styles.inputLabel} htmlFor={props?.id}>
+          {label}
+        </Label>
+      )}
+      <textarea {...props} className={styles.textArea} value={value || ""} />
       {error && <span className="form-error-msg">{error}</span>}
     </Fieldset>
   );
+};
+
+TextAreaField.defaultProps = {
+  value: "",
 };
 
 export default TextAreaField;

@@ -2,19 +2,29 @@
 
 .inputWithIcon {
     position: relative;
+    width: 100%;
     &, .inputWithIconIcon {
         display: flex;
     }
 }
 .inputWithIconIcon {
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.08);
     border-radius: 50%;
     justify-content: center;
     position: absolute;
     width: $input-height;
     height: $input-height;
+    bottom: 10px;
 }
 .inputWithIconInput {
     padding-left: $input-height + 10px;
+    width: 100%;
+}
+.icon {
+    color: rgba(0,0,0, 0.5);
+}
+.actionWrapper {
+    position: absolute;
+    right: 0;
+    bottom: 15px
 }
