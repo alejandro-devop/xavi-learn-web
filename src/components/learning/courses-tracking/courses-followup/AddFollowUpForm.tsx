@@ -1,11 +1,11 @@
-import { useForm } from "hooks";
+import { useForm } from "core/hooks";
 import config from "./form.config";
-import Form, { Fieldset, Label, TextField } from "components/form";
-import { Button } from "components/buttons";
+import Form, { Fieldset, Label, TextField } from "core/components/form";
+import { Button } from "core/components/buttons";
 import { CourseFollowUpSchema } from "types/schemas/courses";
-import ErrorRenderer from "components/form/error-renderer";
+import ErrorRenderer from "core/components/form/error-renderer";
 import MakrDownEditor from "./MarkDownEditor";
-import SelectSourceField from "components/form/select-source-field/SelectSourceField";
+import SelectSourceField from "core/components/form/select-source-field/SelectSourceField";
 import { useParams } from "react-router-dom";
 import styles from "./form.module.scss";
 

@@ -5,8 +5,8 @@ import Form, {
   IconField,
   Fieldset,
   SubmitButton,
-} from "components/form";
-import { useForm } from "hooks";
+} from "core/components/form";
+import { useForm } from "core/hooks";
 import { ActivityCategoryFormType } from "types/forms/activity-category.types";
 import formConfig from "./form.config";
 

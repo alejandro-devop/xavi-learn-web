@@ -1,9 +1,9 @@
 import { AppRouting } from "routing";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "redux/store";
-import SessionContext from "contexts/session-context";
-import AppContext from "contexts/app-context/AppContext";
-import ApiContext from "contexts/api-context";
+import SessionContext from "core/contexts/session-context";
+import AppContext from "core/contexts/app-context/AppContext";
+import ApiContext from "core/contexts/api-context";
 import Head from "components/page-meta/head/Head";
 const AppWrapper: React.FC = () => {
   return (

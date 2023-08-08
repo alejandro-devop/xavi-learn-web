@@ -2,7 +2,7 @@ import { CourseFollowUpSchema } from "types/schemas/courses";
 import moment from "moment";
 import styles from "./followup-item.module.scss";
 import { useMemo } from "react";
-import IconButton from "components/buttons/icon-button";
+import IconButton from "core/components/buttons/icon-button";
 interface FollowUpItemProps {
   item: CourseFollowUpSchema;
   onView?: (item: CourseFollowUpSchema) => void;

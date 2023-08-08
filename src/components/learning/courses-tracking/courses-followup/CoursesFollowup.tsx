@@ -1,4 +1,4 @@
-import { useRouting } from "hooks";
+import { useRouting } from "core/hooks";
 import AddFollowUp from "./AddFollowUp";
 import { useParams } from "react-router-dom";
 

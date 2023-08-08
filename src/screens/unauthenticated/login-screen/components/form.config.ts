@@ -1,4 +1,4 @@
-import { UseFormHookConfigType } from "hooks/use-form/types";
+import { UseFormHookConfigType } from "core/hooks/use-form/types";
 import { LoginFormType } from "types/forms/auth.types";
 
 export default {

@@ -1,14 +1,14 @@
-import { useForm } from "hooks";
+import { useForm } from "core/hooks";
 import config from "./form.config";
 import Form, {
   Fieldset,
   NumberField,
   TextAreaField,
   TextField,
-} from "components/form";
-import { Button } from "components/buttons";
+} from "core/components/form";
+import { Button } from "core/components/buttons";
 import { CourseSchema } from "types/schemas/courses";
-import ErrorRenderer from "components/form/error-renderer";
+import ErrorRenderer from "core/components/form/error-renderer";
 
 interface CourseFormProps {
   loading?: boolean;

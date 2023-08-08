@@ -1,5 +1,5 @@
-import { Button } from "components/buttons";
-import { useRouting } from "hooks";
+import { Button } from "core/components/buttons";
+import { useRouting } from "core/hooks";
 
 const RegisteredMessage: React.FC<{ message?: string }> = ({ message }) => {
   const { redirectTo } = useRouting();

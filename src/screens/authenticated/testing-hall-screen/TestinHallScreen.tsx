@@ -1,6 +1,6 @@
-import { Button } from "components/buttons";
+import { Button } from "core/components/buttons";
 import styles from "./testing-hall.module.scss";
-import Table from "components/table/Table";
+import Table from "core/components/table/Table";
 import { InsidesLayout } from "layouts";
 import {
   CheckboxField,
@@ -9,7 +9,7 @@ import {
   PasswordField,
   TextAreaField,
   TextField,
-} from "components/form";
+} from "core/components/form";
 
 const TestingHallScreen: React.FC = () => {
   return (

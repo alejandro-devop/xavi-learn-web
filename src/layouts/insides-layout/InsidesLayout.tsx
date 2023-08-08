@@ -1,5 +1,5 @@
-import Breadcrumbs from "components/breadcrumbs";
-import { BreadcrumbType } from "components/breadcrumbs/types";
+import Breadcrumbs from "core/components/breadcrumbs";
+import { BreadcrumbType } from "core/components/breadcrumbs/types";
 import { PageTitle } from "components/page";
 import React from "react";
 

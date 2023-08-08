@@ -1,11 +1,10 @@
-import { useGet } from "contexts/api-context/hooks";
+import { useGet } from "core/contexts/api-context/hooks";
 import { CourseSchema } from "types/schemas/courses";
 import { useCallback, useState } from "react";
-import Dialog from "components/dialogs/dialog";
+import Dialog from "core/components/dialogs/dialog";
 import AddCourse from "./AddCourse";
-import { Button } from "components/buttons";
-import Table from "components/table/Table";
-import { useRouting } from "hooks";
+import Table from "core/components/table/Table";
+import { useRouting } from "core/hooks";
 
 const CoursesList: React.FC = () => {
   const [courses, loading, { refetch }] =

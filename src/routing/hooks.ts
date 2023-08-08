@@ -1,5 +1,5 @@
 import { RoutesConfigType, RouteType } from "./types";
-import { useSession } from "hooks";
+import { useSession } from "core/hooks";
 
 export const useAppRoutes = (routes: RoutesConfigType) => {
   const { session } = useSession();

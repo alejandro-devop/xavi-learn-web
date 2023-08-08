@@ -1,5 +1,5 @@
-import { Button } from "components/buttons";
-import { useGet } from "contexts/api-context/hooks";
+import { Button } from "core/components/buttons";
+import { useGet } from "core/contexts/api-context/hooks";
 import { useState } from "react";
 import CreateCategory from "../create-category/CreateCategory";
 import UpdateCategory from "../update-category/UpdateCategory";

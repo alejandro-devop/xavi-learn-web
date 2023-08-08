@@ -1,4 +1,4 @@
-import { UseFormHookConfigType } from "hooks/use-form/types";
+import { UseFormHookConfigType } from "core/hooks/use-form/types";
 import { ActivityCategoryFormType } from "types/forms/activity-category.types";
 
 export default {

@@ -3,11 +3,11 @@ import Form, {
   Fieldset,
   PasswordField,
   SubmitButton,
-} from "components/form";
-import { useForm, useRouting } from "hooks";
+} from "core/components/form";
+import { useForm, useRouting } from "core/hooks";
 import { LoginFormType } from "types/forms/auth.types";
 import formConfig from "./form.config";
-import { Button } from "components/buttons";
+import { Button } from "core/components/buttons";
 import { useCallback } from "react";
 
 interface LoginFormProps {

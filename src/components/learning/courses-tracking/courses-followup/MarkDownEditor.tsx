@@ -1,4 +1,4 @@
-import { InputBaseProps } from "components/form/input-base/types";
+import { InputBaseProps } from "core/components/form/input-base/types";
 import MDEditor from "@uiw/react-md-editor";
 const MakrDownEditor: React.FC<InputBaseProps> = ({
   name = "",

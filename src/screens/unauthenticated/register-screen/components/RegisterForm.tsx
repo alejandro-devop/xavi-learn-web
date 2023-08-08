@@ -4,9 +4,9 @@ import Form, {
   SubmitButton,
   PasswordField,
   TextField,
-} from "components/form";
-import { Button } from "components/buttons";
-import { useForm, useRouting } from "hooks";
+} from "core/components/form";
+import { Button } from "core/components/buttons";
+import { useForm, useRouting } from "core/hooks";
 import { RegisterFormType } from "types/forms/auth.types";
 import { useCallback } from "react";
 import formConfig from "./form.config";

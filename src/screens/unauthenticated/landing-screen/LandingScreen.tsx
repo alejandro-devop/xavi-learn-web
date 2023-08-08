@@ -1,4 +1,4 @@
-import { useRouting } from "hooks";
+import { useRouting } from "core/hooks";
 
 const LandingScreen: ScreenType = ({ title }) => {
   const { goTo } = useRouting();

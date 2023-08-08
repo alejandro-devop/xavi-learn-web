@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useGet } from "contexts/api-context/hooks";
+import { useGet } from "core/contexts/api-context/hooks";
 import { CourseFollowUpSchema, CourseSchema } from "types/schemas/courses";
 import FollowUpItem from "./FollowUpItem";
-import { Button } from "components/buttons";
-import { useRouting } from "hooks";
-import DetailTable from "components/detail-table/DetailTable";
+import { Button } from "core/components/buttons";
+import { useRouting } from "core/hooks";
+import DetailTable from "core/components/detail-table/DetailTable";
 import MDEditor from "@uiw/react-md-editor";
 import styles from "./view-course.module.scss";
-import { Label } from "components/form";
+import { Label } from "core/components/form";
 import moment from "moment";
 
 interface ViewCourseProps {

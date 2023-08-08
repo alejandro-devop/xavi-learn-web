@@ -1,7 +1,7 @@
-import { usePost } from "contexts/api-context/hooks";
+import { usePost } from "core/contexts/api-context/hooks";
 import { LoginForm } from "./components";
 import { LoginFormType } from "types/forms/auth.types";
-import { useSession } from "hooks";
+import { useSession } from "core/hooks";
 
 type LoginResponseType = {
   message: string;

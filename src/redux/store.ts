@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sessionReducer from "./slices/sessionSlice";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
-import { writeToSession } from "utils/session.utils";
+import { writeToSession } from "core/utils/session.utils";
 
 const store = configureStore({
   reducer: {

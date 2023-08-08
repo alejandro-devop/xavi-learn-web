@@ -1,4 +1,4 @@
-import { usePost } from "contexts/api-context/hooks";
+import { usePost } from "core/contexts/api-context/hooks";
 import { RegisterForm, RegisteredMessage } from "./components";
 import { RegisterFormType } from "types/forms/auth.types";
 import { useState } from "react";

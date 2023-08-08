@@ -1,7 +1,7 @@
-import { usePost } from "contexts/api-context/hooks";
+import { usePost } from "core/contexts/api-context/hooks";
 import CategoryForm from "../category-form/CategoryForm";
 import { ActivityCategoryFormType } from "types/forms/activity-category.types";
-import ErrorRenderer from "components/form/error-renderer/ErrorRenderer";
+import ErrorRenderer from "core/components/form/error-renderer/ErrorRenderer";
 
 interface CreateCategoryProps {
   onSaved?: () => void;

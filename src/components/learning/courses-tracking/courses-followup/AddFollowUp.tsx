@@ -1,4 +1,4 @@
-import { usePost } from "contexts/api-context/hooks";
+import { usePost } from "core/contexts/api-context/hooks";
 import CourseForm from "./AddFollowUpForm";
 import { CourseFollowUpSchema } from "types/schemas/courses";
 

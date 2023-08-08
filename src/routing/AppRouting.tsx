@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import RoutingContext from "contexts/routing-context";
+import RoutingContext from "core/contexts/routing-context";
 import RoutingWrapper from "./RoutingWrapper";
-import { Menu } from "components";
-import StatusBar from "components/status-bar/StatusBar";
-import { useSession } from "hooks";
+import Menu from "core/components/menu";
+import StatusBar from "core/components/status-bar/StatusBar";
+import { useSession } from "core/hooks";
 
 interface AppRoutingProps {}
 

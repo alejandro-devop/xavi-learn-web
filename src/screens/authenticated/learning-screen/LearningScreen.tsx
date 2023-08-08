@@ -1,7 +1,7 @@
-import Breadcrumbs from "components/breadcrumbs";
-import { Button } from "components/buttons";
+import Breadcrumbs from "core/components/breadcrumbs";
+import { Button } from "core/components/buttons";
 import { PageTitle } from "components/page";
-import { useRouting } from "hooks";
+import { useRouting } from "core/hooks";
 // import CoursesFollowup from "components/learning/courses-tracking/courses-followup";
 // import LearningTracking from "components/learning/learning-tracking";
 // import Programming from "components/learning/programming";

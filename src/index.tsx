@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "utils/registryIcons";
+import "core/utils/registryIcons";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

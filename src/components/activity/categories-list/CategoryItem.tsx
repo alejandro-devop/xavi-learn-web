@@ -1,5 +1,5 @@
-import { Button } from "components/buttons";
-import { useDelete } from "contexts/api-context/hooks";
+import { Button } from "core/components/buttons";
+import { useDelete } from "core/contexts/api-context/hooks";
 
 interface CategoryItemProps {
   item: any;

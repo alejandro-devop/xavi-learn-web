@@ -1,4 +1,4 @@
-import Breadcrumbs from "components/breadcrumbs";
+import Breadcrumbs from "core/components/breadcrumbs";
 import Courses from "components/learning/courses-tracking/courses";
 import { PageTitle } from "components/page";
 // import CoursesFollowup from "components/learning/courses-tracking/courses-followup";
