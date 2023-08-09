@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useMediaQuery } from "core/hooks";
 import classNames from "classnames";
 import useAppConfig from "core/hooks/useAppConfig";
+import Picture from "../picture/Picture";
+import logo from "assets/logo.png";
 
 const Menu: React.FC = () => {
   const { toggleNavbar, openedNavbar } = useAppConfig();
@@ -30,9 +32,11 @@ const Menu: React.FC = () => {
 
         <div className={styles.sideBarHeader}>
           <div className={styles.sideBarHeaderLogoWrapper}>
-            <span></span>
+            <Picture src={logo} />
           </div>
-          <div className={styles.sideBarTitleWrapper}></div>
+          <div className={styles.sideBarTitleWrapper}>
+            <h3>Xavier life</h3>
+          </div>
         </div>
         <ul className={styles.sideBarMenu}>
           <li>
