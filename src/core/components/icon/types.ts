@@ -22,4 +22,5 @@ export type IconType =
   | "tag"
   | "times"
   | "trash"
+  | "bars"
   | "user";

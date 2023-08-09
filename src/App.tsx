@@ -1,11 +1,7 @@
 import { AppWrapper } from "components";
 
 function App() {
-  return (
-    <>
-      <AppWrapper />
-    </>
-  );
+  return <AppWrapper />;
 }
 
 export default App;

@@ -1,11 +1,33 @@
 import Icon from "core/components/icon";
 import { NavLink } from "react-router-dom";
 import styles from "./menu.module.scss";
+import { useState } from "react";
+import { useMediaQuery } from "core/hooks";
+import classNames from "classnames";
+import useAppConfig from "core/hooks/useAppConfig";
 
 const Menu: React.FC = () => {
+  const { toggleNavbar, openedNavbar } = useAppConfig();
+  // const [opened, setOpened] = useState(false);
+  const { isIn } = useMediaQuery();
+  // const toggleMenu = () => setOpened(!opened);
+  const isMobile = isIn(["xs", "sm", "md"]);
+  console.log(openedNavbar);
   return (
     <>
-      <div id="side-bar" className={styles.sideBar}>
+      <div
+        id="side-bar"
+        className={classNames(styles.sideBar, {
+          [styles.mobileBar]: isMobile,
+          [styles.opened]: openedNavbar,
+        })}
+      >
+        {isMobile && (
+          <button onClick={toggleNavbar}>
+            <Icon icon="times" />
+          </button>
+        )}
+
         <div className={styles.sideBarHeader}>
           <div className={styles.sideBarHeaderLogoWrapper}>
             <span></span>

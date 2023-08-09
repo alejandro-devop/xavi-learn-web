@@ -12,6 +12,15 @@
     width: $menu-desktop-width;
     z-index: $menu-layer;
     overflow-y: auto;
+    transition: transform .6s;
+    &.mobileBar {
+        transform: translateX(-100%);
+    }
+
+    &.opened {
+        transform: translateX(0);
+        background-color: red;
+    }
 
     &Header {
         align-items: flex-end;

@@ -5,6 +5,7 @@ import RoutingWrapper from "./RoutingWrapper";
 import Menu from "core/components/menu";
 import StatusBar from "core/components/status-bar/StatusBar";
 import { useSession } from "core/hooks";
+import styles from "./app-routing.module.scss";
 
 interface AppRoutingProps {}
 
@@ -15,6 +16,7 @@ interface AppRoutingProps {}
  */
 const AppRouting: React.FC<AppRoutingProps> = () => {
   const { session } = useSession();
+
   return (
     <Router>
       {session.logged && (
@@ -23,7 +25,7 @@ const AppRouting: React.FC<AppRoutingProps> = () => {
           <Menu />
         </>
       )}
-      <div id="content">
+      <div id="content" className={styles.content}>
         <RoutingContext>
           <RoutingWrapper />
         </RoutingContext>

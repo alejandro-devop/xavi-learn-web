@@ -9,40 +9,24 @@
     display: flex;
     flex: 1;
     height: 60px;    
-    left: $menu-desktop-width;
     position: absolute;
-    width: calc(100vw - $menu-desktop-width);
+    width: 100%;
+    // @include sm-resolution {
+    //     background-color: green;
+    // }
+    // @include md-resolution {
+    //     background-color: blue;
+    // }
+    @include md-resolution {
+        // flex-grow: 1;
+        // max-width: calc(100vw - $menu-desktop-width);
+        // left: $menu-desktop-width;
+        // position: relative;
+        left: $menu-desktop-width;
+        width: calc(100vw - $menu-desktop-width);
+    }
+}
 
-    &IconButton, &Input {
-        background-color: rgba(0,0,0,0.08);
-        height: 40px;
-    }
-
-    &IconButton {
-        border-radius: 50%;
-        width: 40px;
-        margin-right: 10px;
-    }
-
-    &Input {
-        flex: 1;
-        border-radius: 20px;
-    }
-
-    &BeginWrapper, &MiddleWrapper, &EndWrapper {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin: 0px 10px;
-    }
-    &BeginWrapper {
-        flex: 2;        
-    }
-    &MiddleWrapper {
-        flex: 8;
-    }
-    &EndWrapper {
-        flex: 4;
-        justify-content: flex-end;
-    }
+.toggleButton {
+    margin-left: 1rem;
 }

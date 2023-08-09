@@ -1,0 +1,29 @@
+@mixin xs-resolution {
+    @media screen and (min-width: $media-xs) {
+        @content;
+    }
+}
+
+@mixin sm-resolution {
+    @media screen and (min-width: $media-sm) {
+        @content;
+    }
+}
+
+@mixin md-resolution {
+    @media screen and (min-width: $media-md) {
+        @content;
+    }
+}
+
+@mixin lg-resolution {
+    @media screen and (min-width: $media-lg) {
+        @content;
+    }
+}
+
+@mixin xl-resolution {
+    @media screen and (min-width: $media-lg) {
+        @content;
+    }
+}
