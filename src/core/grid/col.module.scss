@@ -1,0 +1,110 @@
+@import 'styles/shared_modules.scss';
+$padding: 1rem;
+$max-cols-xl: 12;
+
+$col-size: calc(100% / $max-cols-xl);
+
+.col {
+    width: 100%;
+    padding: .08rem;
+    &.size_1 {
+        @include sm-resolution {
+            width: $col-size * 2;
+        }
+        @include md-resolution {
+            width: $col-size;
+        }
+    }
+
+    &.size_2 {
+        @include sm-resolution {
+            width: $col-size * 3;
+        }
+        @include md-resolution {
+            width: $col-size * 2;
+        }
+    }
+    
+    &.size_3 {
+        @include sm-resolution {
+            width: $col-size * 4;
+        }
+        @include md-resolution {
+            width: $col-size * 3;
+        }
+        @include lg-resolution {
+            
+        }
+    }
+    
+    &.size_4 {
+        @include sm-resolution {
+            width: $col-size * 6;
+        }
+        @include md-resolution {
+            width: $col-size * 4;
+        }
+    }
+
+    &.size_5 {
+        @include sm-resolution {
+            width: $col-size * 6;
+        }
+        @include md-resolution {
+            width: $col-size * 5;
+        }
+    }
+    &.size_6 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+        @include md-resolution {
+            width: $col-size * 6;
+        }
+    }
+    &.size_7 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+        @include md-resolution {
+            width: $col-size * 7;
+        }
+    }
+    &.size_8 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+        @include md-resolution {
+            width: $col-size * 8;
+        }
+    }
+    &.size_9 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+        @include md-resolution {
+            width: $col-size * 9;
+        }
+    }
+    &.size_10 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+        @include md-resolution {
+            width: $col-size * 10;
+        }
+    }
+    &.size_11 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+        @include md-resolution {
+            width: $col-size * 11;
+        }
+    }
+    &.size_12 {
+        @include sm-resolution {
+            width: $col-size * 12;
+        }
+    }
+}

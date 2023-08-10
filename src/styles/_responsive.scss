@@ -1,29 +1,40 @@
+/** Media queries */
+$media-xs: 320px;
+$media-sm: 768px;
+$media-md: 1024px;
+$media-lg: 1280px;
+// if (res.width < 414) return "xs";
+//     if (res.width < 768) return "sm";
+//     if (res.width < 1024) return "md";
+//     if (res.width < 1280) return "lg";
+//     return "xl";
+
 @mixin xs-resolution {
-    @media screen and (min-width: $media-xs) {
+    @media screen and (min-width: 20px) {
         @content;
     }
 }
 
 @mixin sm-resolution {
-    @media screen and (min-width: $media-sm) {
+    @media screen and (min-width: 414px) {
         @content;
     }
 }
 
 @mixin md-resolution {
-    @media screen and (min-width: $media-md) {
+    @media screen and (min-width: 768px) {
         @content;
     }
 }
 
 @mixin lg-resolution {
-    @media screen and (min-width: $media-lg) {
+    @media screen and (min-width: 1024px) {
         @content;
     }
 }
 
 @mixin xl-resolution {
-    @media screen and (min-width: $media-lg) {
+    @media screen and (min-width: 1440px) {
         @content;
     }
 }

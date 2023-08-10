@@ -10,6 +10,8 @@ import {
   TextAreaField,
   TextField,
 } from "core/components/form";
+import Grid, { Col, Row } from "core/grid";
+import _ from "lodash";
 
 const TestingHallScreen: React.FC = () => {
   return (
@@ -21,6 +23,186 @@ const TestingHallScreen: React.FC = () => {
       title="Testing Hall"
       subtitle="all components "
     >
+      <div className={styles.gridWrapper}>
+        <Grid>
+          <Row>
+            {_.range(1, 13).map((item) => (
+              <Col key={`item-${item}`}>
+                <div className={styles.colMock}>
+                  <span key={item}>Col 1</span>
+                </div>
+              </Col>
+            ))}
+          </Row>
+          <Row>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={3}>
+              <div className={styles.colMock}>
+                <span>Col 3</span>
+              </div>
+            </Col>
+            <Col size={3}>
+              <div className={styles.colMock}>
+                <span>Col 3</span>
+              </div>
+            </Col>
+            <Col size={3}>
+              <div className={styles.colMock}>
+                <span>Col 3</span>
+              </div>
+            </Col>
+            <Col size={3}>
+              <div className={styles.colMock}>
+                <span>Col 3</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={4}>
+              <div className={styles.colMock}>
+                <span>Col 4</span>
+              </div>
+            </Col>
+            <Col size={4}>
+              <div className={styles.colMock}>
+                <span>Col 4</span>
+              </div>
+            </Col>
+            <Col size={4}>
+              <div className={styles.colMock}>
+                <span>Col 4</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={5}>
+              <div className={styles.colMock}>
+                <span>Col 5</span>
+              </div>
+            </Col>
+            <Col size={5}>
+              <div className={styles.colMock}>
+                <span>Col 5</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={6}>
+              <div className={styles.colMock}>
+                <span>Col 6</span>
+              </div>
+            </Col>
+            <Col size={6}>
+              <div className={styles.colMock}>
+                <span>Col 6</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={7}>
+              <div className={styles.colMock}>
+                <span>Col 7</span>
+              </div>
+            </Col>
+            <Col size={5}>
+              <div className={styles.colMock}>
+                <span>Col 5</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={8}>
+              <div className={styles.colMock}>
+                <span>Col 8</span>
+              </div>
+            </Col>
+            <Col size={4}>
+              <div className={styles.colMock}>
+                <span>Col 4</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={9}>
+              <div className={styles.colMock}>
+                <span>Col 9</span>
+              </div>
+            </Col>
+            <Col size={3}>
+              <div className={styles.colMock}>
+                <span>Col 3</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={10}>
+              <div className={styles.colMock}>
+                <span>Col 10</span>
+              </div>
+            </Col>
+            <Col size={2}>
+              <div className={styles.colMock}>
+                <span>Col 2</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={11}>
+              <div className={styles.colMock}>
+                <span>Col 11</span>
+              </div>
+            </Col>
+            <Col size={1}>
+              <div className={styles.colMock}>
+                <span>Col 1</span>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={12}>
+              <div className={styles.colMock}>
+                <span>Col 12</span>
+              </div>
+            </Col>
+          </Row>
+        </Grid>
+      </div>
       <div className={styles.testingHallRoot}>
         <div className={styles.row}>
           <Button icon="flask" rounded>

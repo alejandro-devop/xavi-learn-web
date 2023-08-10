@@ -24,6 +24,7 @@
         justify-content: flex-end;
     }
 
+    /** mobile **/
     table,
     tr,
     td,
@@ -31,49 +32,93 @@
         border: none;
     }
 
-    thead {
-        th {
-            span {
-                align-items: center;
-                justify-content: center;
-                display: inline-flex;
-                background-color: rgba(0, 0, 0, 0.06);
-                border-radius: 5px;
-                width: 100%;
-                height: 100%;
+    .isMobile {
+        thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+          }
+          
+        td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: left;
+            min-height: 20px;
+          }
+          
+        td::before {
+            /*
+            * aria-label has no advantage, it won't be read inside a table
+            content: attr(aria-label);
+            */
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            min-width: 35%;
+        }
+          
+        td:last-child {
+            border-bottom: 0;
+        }
+    }
+    /** mobile **/
+
+    @include md-resolution {
+        thead {
+            th {
+                span {
+                    align-items: center;
+                    justify-content: center;
+                    display: inline-flex;
+                    background-color: rgba(0, 0, 0, 0.06);
+                    border-radius: 5px;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
-    }
 
-    th,
-    td {
-        font-size: 0.9rem;
-        height: 35px;
-    }
+        th,
+        td {
+            font-size: 0.9rem;
+            height: 35px;
+        }
 
-    td {
-        padding: 0.4rem 1.2rem;
-    }
+        td {
+            padding: 0.4rem 1.2rem;
+        }
 
-    td:last-child {
-        text-align: right;
-        white-space: nowrap;
-        width: 1%;
-    }
+        td:last-child {
+            text-align: right;
+            white-space: nowrap;
+            width: 1%;
+        }
 
-    tbody {
+        tbody {
+            tr {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            }
+        }
         tr {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            &:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.03);
+            }
         }
-    }
-    tr {
-        &:nth-child(even) {
-            background-color: rgba(0, 0, 0, 0.03);
-        }
-    }
 
-    th {
-        color: rgba(0, 0, 0, 0.6);
-        ;
+        th {
+            color: rgba(0, 0, 0, 0.6);
+            ;
+        }
     }
 }

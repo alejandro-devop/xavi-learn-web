@@ -3,7 +3,7 @@
 .content {
     width: 100%;
     
-    @include md-resolution {
+    @include lg-resolution {
         flex-grow: 1;
         max-width: calc(100vw - $menu-desktop-width);
         left: $menu-desktop-width;

@@ -5,6 +5,8 @@ import TableFilters from "./TableFilters";
 import TableActions from "./TableActions";
 import TableFooter from "./TableFooter";
 import { ActionType } from "./types";
+import classNames from "classnames";
+import { useMediaQuery } from "core/hooks";
 
 interface TableProps {
   tableActions?: ActionType[];
@@ -20,6 +22,7 @@ interface TableProps {
 interface RenderRowProps {
   actions?: ActionType[];
   handleAction: (action: string, item: any) => void;
+  colLabels?: { [k: string]: string };
   rowId: string;
   cols: string[];
   data: { [k: string]: any };
@@ -28,6 +31,7 @@ interface RenderRowProps {
 const RenderRow: React.FC<RenderRowProps> = ({
   actions,
   cols,
+  colLabels,
   data,
   rowId,
   handleAction,
@@ -35,10 +39,15 @@ const RenderRow: React.FC<RenderRowProps> = ({
   return (
     <tr>
       {cols.map((key, index) => (
-        <td key={`${rowId}-${index}`}>{data[key]}</td>
+        <td
+          data-label={colLabels ? colLabels[key] || key : key}
+          key={`${rowId}-${index}`}
+        >
+          {data[key]}
+        </td>
       ))}
       {actions?.length && (
-        <td>
+        <td data-label={"Actions"}>
           {actions.map((item, index) => (
             <IconButton
               icon={item.icon}
@@ -61,6 +70,7 @@ const Table: React.FC<TableProps> = ({
   onTableActionCalled,
   tableActions,
 }) => {
+  const { isIn } = useMediaQuery();
   const handleActionTriggered = useCallback(
     (action: string, item: any) => {
       onActionCalled?.(action, item);
@@ -68,8 +78,10 @@ const Table: React.FC<TableProps> = ({
     [onActionCalled]
   );
 
+  const isMobile = isIn(["xs", "sm", "md"]);
+
   return (
-    <div className={styles.table}>
+    <div className={classNames(styles.table)}>
       <div className={styles.tableToolbar}>
         <div className={styles.tableToolbarLeft}>
           <TableFilters />
@@ -81,7 +93,7 @@ const Table: React.FC<TableProps> = ({
           />
         </div>
       </div>
-      <table>
+      <table className={classNames({ [styles.isMobile]: isMobile })}>
         <thead>
           <tr>
             {columns.map((col, index) => (
@@ -98,6 +110,7 @@ const Table: React.FC<TableProps> = ({
               handleAction={handleActionTriggered}
               actions={actions}
               rowId={`${index}`}
+              colLabels={colLabels}
               cols={columns}
               data={rowData}
               key={`row-${index}`}

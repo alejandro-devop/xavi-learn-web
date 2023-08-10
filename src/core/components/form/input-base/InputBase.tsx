@@ -37,9 +37,9 @@ const InputBase = forwardRef(
             className={classNames(styles.inputLabel)}
           >
             {label}
+            {error && <span className={styles.formErrorMsg}>{error}</span>}
           </Label>
           {inputRender}
-          {error && <span className={styles.formErrorMsg}>{error}</span>}
         </Fieldset>
       );
     }

@@ -23,10 +23,11 @@
     }
 
     th {
-        background-color: $palette-light-1;
+
+        background-color: rgba(0, 0, 0, 0.05);
         text-align: right;
         // color: rgba(0, 0, 0, 0.4);
-        color: $palette-secondary;
+        // color: $palette-secondary;
         // text-align: left;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }

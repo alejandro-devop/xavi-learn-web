@@ -14,9 +14,13 @@ const Menu: React.FC = () => {
   const { isIn } = useMediaQuery();
   // const toggleMenu = () => setOpened(!opened);
   const isMobile = isIn(["xs", "sm", "md"]);
-  console.log(openedNavbar);
+
   return (
-    <>
+    <div
+      className={classNames({
+        [styles.sideBarWrapper]: openedNavbar && isMobile,
+      })}
+    >
       <div
         id="side-bar"
         className={classNames(styles.sideBar, {
@@ -25,8 +29,8 @@ const Menu: React.FC = () => {
         })}
       >
         {isMobile && (
-          <button onClick={toggleNavbar}>
-            <Icon icon="times" />
+          <button onClick={toggleNavbar} className={styles.closeButton}>
+            <Icon icon="times" className={styles.closeButtonIcon} />
           </button>
         )}
 
@@ -61,7 +65,7 @@ const Menu: React.FC = () => {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 
