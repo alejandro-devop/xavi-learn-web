@@ -1,7 +1,6 @@
 import Icon from "core/components/icon";
 import { NavLink } from "react-router-dom";
 import styles from "./menu.module.scss";
-import { useState } from "react";
 import { useMediaQuery } from "core/hooks";
 import classNames from "classnames";
 import useAppConfig from "core/hooks/useAppConfig";

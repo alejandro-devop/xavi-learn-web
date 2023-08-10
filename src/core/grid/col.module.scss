@@ -8,49 +8,46 @@ $col-size: calc(100% / $max-cols-xl);
     width: 100%;
     padding: .08rem;
     &.size_1 {
-        @include sm-resolution {
+        @include md-resolution {
             width: $col-size * 2;
         }
-        @include md-resolution {
+        @include lg-resolution {
             width: $col-size;
         }
     }
 
     &.size_2 {
-        @include sm-resolution {
+        @include md-resolution {
             width: $col-size * 3;
         }
-        @include md-resolution {
+        @include lg-resolution {
             width: $col-size * 2;
         }
     }
     
     &.size_3 {
-        @include sm-resolution {
+        @include md-resolution {
             width: $col-size * 4;
         }
-        @include md-resolution {
-            width: $col-size * 3;
-        }
         @include lg-resolution {
-            
+            width: $col-size * 3;
         }
     }
     
     &.size_4 {
-        @include sm-resolution {
+        @include md-resolution {
             width: $col-size * 6;
         }
-        @include md-resolution {
+        @include lg-resolution {
             width: $col-size * 4;
         }
     }
 
     &.size_5 {
-        @include sm-resolution {
+        @include md-resolution {
             width: $col-size * 6;
         }
-        @include md-resolution {
+        @include lg-resolution {
             width: $col-size * 5;
         }
     }
