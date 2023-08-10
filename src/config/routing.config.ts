@@ -4,11 +4,13 @@ import {
   LearningScreen,
   LearningFollowUpScreen,
   ListCoursesScreen,
+  ListHabitsScreen,
   ProfileScreen,
   SettingsScreen,
   TestingHallScreen,
   ViewCourseScreen,
 } from "screens/authenticated";
+
 import {
   LandingScreen,
   LoginScreen,
@@ -21,6 +23,7 @@ export const routeAliases = {
   register: "/register",
   dashboard: "/",
   learning: "/learning",
+  habitsList: "/habits-list",
   learningFollowUp: "/learning/courses/:courseId/followup",
   coursesView: "/learning/courses/:courseId/view",
   coursesList: "/learning/courses",
@@ -41,6 +44,7 @@ const routes: RoutesConfigType = {
   authenticated: {
     [routeAliases.dashboard]: DashboardScreen,
     [routeAliases.learning]: LearningScreen,
+    [routeAliases.habitsList]: ListHabitsScreen,
     [routeAliases.profile]: ProfileScreen,
     [routeAliases.settings]: SettingsScreen,
     [routeAliases.learningFollowUp]: LearningFollowUpScreen,
