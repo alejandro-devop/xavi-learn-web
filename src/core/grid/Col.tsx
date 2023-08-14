@@ -7,7 +7,6 @@ interface ColProps {
 }
 
 const Col: React.FC<ColProps> = ({ size, children }) => {
-  console.log("styles: ", styles);
   return (
     <div className={classNames(styles.col, styles[`size_${size}`])}>
       {children}

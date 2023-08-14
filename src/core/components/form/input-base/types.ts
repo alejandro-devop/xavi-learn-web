@@ -4,4 +4,6 @@ export interface InputBaseProps
   label?: string;
   labelProps?: React.HTMLAttributes<HTMLLabelElement>;
   error?: string | null;
+  max?: number;
+  hideMax?: boolean;
 }

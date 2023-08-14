@@ -2,6 +2,7 @@
 
 .textAreaRoot {
     width: 100%;
+    position: relative;
 }
 
 .textArea {
@@ -25,4 +26,14 @@
 
 .inputLabel {
     color: $palette-secondary;
+}
+
+.charCount {
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    color: $palette-secondary;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(10px);
 }

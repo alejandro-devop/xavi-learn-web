@@ -11,7 +11,7 @@ import styles from "./input-base.module.scss";
  */
 const InputBase = forwardRef(
   (
-    { className, error, label, ...props }: InputBaseProps,
+    { className, error, label, value, max, hideMax, ...props }: InputBaseProps,
     ref: React.Ref<any>
   ) => {
     const inputRender = (
@@ -19,9 +19,10 @@ const InputBase = forwardRef(
         ref={ref as any}
         className={classNames(styles.inputBase, className)}
         name={props?.name || props?.id}
+        maxLength={max}
         {...props}
         onChange={props?.onChange || (() => null)}
-        value={props?.value || ""}
+        value={value || ""}
       />
     );
 
@@ -40,11 +41,20 @@ const InputBase = forwardRef(
             {error && <span className={styles.formErrorMsg}>{error}</span>}
           </Label>
           {inputRender}
+          {max && !hideMax && (
+            <span className={styles.charCount}>
+              {`${value || ""}`?.length}/{max}
+            </span>
+          )}
         </Fieldset>
       );
     }
     return inputRender;
   }
 );
+
+InputBase.defaultProps = {
+  max: 120,
+};
 
 export default React.memo(InputBase);

@@ -12,8 +12,17 @@ import {
 } from "core/components/form";
 import Grid, { Col, Row } from "core/grid";
 import _ from "lodash";
+import { useState } from "react";
 
 const TestingHallScreen: React.FC = () => {
+  const [form, setForm] = useState<{ [k: string]: any }>({
+    password: "jkrules",
+  });
+  const handleChange = ({ target }: any) => {
+    const { value, name } = target;
+    setForm({ ...form, [name]: value });
+    // setForm();
+  };
   return (
     <InsidesLayout
       crumbs={[
@@ -234,19 +243,25 @@ const TestingHallScreen: React.FC = () => {
               id="field-1"
               label="Text field"
               placeholder="Some place holder"
-              value={""}
+              value={form.field_1}
+              name="field_1"
+              onChange={handleChange}
             />
             <EmailField
               id="field-2"
               label="Email field"
               placeholder="Enter an e-mail"
-              value={""}
+              value={form.email}
+              onChange={handleChange}
+              name="email"
             />
             <PasswordField
               id="Password"
               label="Password"
               placeholder="Enter a password"
-              value={"jkrules"}
+              value={form.password}
+              onChange={handleChange}
+              name="password"
             />
             <NumberField
               id="number"
@@ -260,8 +275,10 @@ const TestingHallScreen: React.FC = () => {
           <div className="w-full md:w-1/4 px-2">
             <TextAreaField
               label="Text area"
-              onChange={() => null}
+              onChange={handleChange}
               placeholder="somegood description"
+              name="description"
+              value={form.description}
             />
           </div>
         </div>

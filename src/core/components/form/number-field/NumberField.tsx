@@ -82,6 +82,7 @@ const NumberField: React.FC<NumberFieldProps> = ({
       ref={(ref) => {
         inputRef.current = ref;
       }}
+      hideMax
       {...props}
       prepend={
         <IconButton icon="minus" disabled={value === min} onClick={decrease} />

@@ -2,6 +2,9 @@ import { Button } from "core/components/buttons";
 import DialogRenderer from "./DialogRenderer";
 import { DialogBaseProps } from "./types";
 import React, { useCallback, useEffect, useState } from "react";
+import classNames from "classnames";
+import styles from "./dialog-base.module.scss";
+import IconButton from "../buttons/icon-button";
 
 /**
  * The dialog is mounted using the open flag, if the flag
@@ -11,12 +14,14 @@ import React, { useCallback, useEffect, useState } from "react";
  * @returns
  */
 const DialogBase: React.FC<DialogBaseProps> = ({
+  disableClose,
   children,
   title,
   labels,
   onClose,
   disableFooter,
   open,
+  size,
 }) => {
   /**
    * The flags are being stored in an object to avoid calling
@@ -58,26 +63,45 @@ const DialogBase: React.FC<DialogBaseProps> = ({
 
   return (
     <DialogRenderer>
-      <div className={`dialog-overlay ${flags?.closed ? "dialog-closed" : ""}`}>
-        <div className="dialog-frame">
+      <div
+        className={`dialog-overlay ${flags?.closed ? styles.dialogClosed : ""}`}
+      >
+        <div
+          className={classNames(styles.dialogFrame, {
+            [styles.dialogFrameSmall]: size === "sm",
+            [styles.dialogFrameMedium]: size === "md",
+            [styles.dialogFrameLarge]: size === "lg",
+            [styles.dialogFrameFull]: size === "full",
+            [styles.dialogFrameXS]: size === "xs",
+          })}
+        >
           {title && (
-            <div className="dialog-header">
+            <div className={styles.dialogHeader}>
               <h3>{title}</h3>
+              {!disableClose && (
+                <IconButton icon="times" onClick={handleClose} />
+              )}
             </div>
           )}
-          <div className="dialog-body">{children}</div>
+          <div className={styles.dialogBody}>{children}</div>
           {!disableFooter && (
-            <div className="dialog-footer">
+            <div className={styles.dialogFooter}>
               <Button disabled={flags?.closed} onClick={handleClose}>
                 {cancel}
               </Button>
-              <Button disabled={flags?.closed}>{accept}</Button>
+              <Button disabled={flags?.closed} variant="primary">
+                {accept}
+              </Button>
             </div>
           )}
         </div>
       </div>
     </DialogRenderer>
   );
+};
+
+DialogBase.defaultProps = {
+  size: "sm",
 };
 
 export default DialogBase;

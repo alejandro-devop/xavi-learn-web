@@ -11,6 +11,7 @@ const CoursesList: React.FC = () => {
     useGet<CourseSchema[]>("courses.list");
   const { goTo } = useRouting();
   const [openedAdd, setOpenedAdd] = useState(false);
+
   const toggleAdd = () => setOpenedAdd(!openedAdd);
 
   const handleSaved = () => {
@@ -74,7 +75,7 @@ const CoursesList: React.FC = () => {
       {/* {courses?.map((course) => (
         <CourseItem course={course} key={`course-${course.id}`} />
       ))} */}
-      <Dialog open={openedAdd} title={"Some cool"} disableFooter>
+      <Dialog open={openedAdd} title={"Some cool"} disableFooter disableClose>
         <AddCourse onCancel={toggleAdd} onSaved={handleSaved} />
       </Dialog>
     </>

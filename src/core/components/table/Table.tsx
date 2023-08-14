@@ -15,6 +15,7 @@ interface TableProps {
   data?: { [k: string]: any }[];
   title?: string;
   actions?: ActionType[];
+  loading?: boolean;
   onActionCalled?: (action: string, item: any) => void;
   onTableActionCalled?: (action: string, item: any) => void;
 }
