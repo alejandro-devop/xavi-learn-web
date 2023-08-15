@@ -23,6 +23,7 @@ const TextField = forwardRef(
       actionIcon,
       prepend,
       append,
+      className,
       ...props
     }: TextFieldProps,
     ref: React.Ref<any>
@@ -45,6 +46,7 @@ const TextField = forwardRef(
           ref={ref}
           className={classNames({
             [styles.inputWithIconInput]: Boolean(prepend) || Boolean(icon),
+            className,
           })}
           type="text"
           {...props}

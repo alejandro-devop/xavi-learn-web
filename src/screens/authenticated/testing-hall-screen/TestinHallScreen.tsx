@@ -13,6 +13,7 @@ import {
 import Grid, { Col, Row } from "core/grid";
 import _ from "lodash";
 import { useState } from "react";
+import DateField from "core/components/form/date-field/DateField";
 
 const TestingHallScreen: React.FC = () => {
   const [form, setForm] = useState<{ [k: string]: any }>({
@@ -23,6 +24,7 @@ const TestingHallScreen: React.FC = () => {
     setForm({ ...form, [name]: value });
     // setForm();
   };
+
   return (
     <InsidesLayout
       crumbs={[
@@ -279,6 +281,13 @@ const TestingHallScreen: React.FC = () => {
               placeholder="somegood description"
               name="description"
               value={form.description}
+            />
+            <DateField
+              label="Date field"
+              onChange={handleChange}
+              placeholder="Select a date"
+              name="date"
+              value={form.date}
             />
           </div>
         </div>

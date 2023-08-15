@@ -2,6 +2,8 @@ export type IconType =
   | "add"
   | "angles-left"
   | "angles-right"
+  | "calendar"
+  | "calendar-alt"
   | "chevron-left"
   | "chevron-right"
   | "chevron-up"

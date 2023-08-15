@@ -11,6 +11,7 @@ import { Button } from "core/components/buttons";
 import StepperActions from "core/components/stepper/StepperActions";
 import StepperNext from "core/components/stepper/StepperNext";
 import StepperBack from "core/components/stepper/StepperBack";
+import DateField from "core/components/form/date-field/DateField";
 
 interface HabitFormProps {
   onCancel?: () => void;
@@ -29,8 +30,8 @@ const HabitForm: React.FC<HabitFormProps> = ({ onCancel }) => {
             <TextAreaField {...fields.description} />
           </Step>
           <Step title="Give it a date">
-            <TextField {...fields.start_date} />
-            <TextField {...fields.end_date} />
+            <DateField {...fields.start_date} />
+            <DateField {...fields.end_date} />
           </Step>
           <Step title="Positive or negative"></Step>
           <Step title="Need to measure the habit?"></Step>
