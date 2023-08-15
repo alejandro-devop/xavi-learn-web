@@ -1,0 +1,80 @@
+@import "styles/shared_modules.scss";
+
+$steper-size: 30px;
+
+.stepperRoot,
+.stepperStep, 
+.stepperStepWrapper {
+    display: flex;
+}
+
+.stepperRoot,
+.stepperStep, 
+.stepperStepWrapper {
+    align-items: center;
+    justify-content: center;
+}
+
+.stepperRoot {
+    flex: 1;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+
+    // &::before {
+        // content: "";
+        // position: absolute;
+        // top: 50%;
+        // left: 0;
+        // width: 100%;
+        // height: 10px;
+        // // background-color: rgba(0, 0, 0, 0.2);
+        // border-radius: 20px;
+        // transform: translateY(-50%);
+        // z-index: -1;
+    // }
+}
+
+.stepperStep {
+    flex: 1;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 5px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        transform: translateY(-50%);
+        z-index: -1;
+    }
+    &.active::after {
+        background-color: $palette-main;
+    }
+
+    &:last-child::after {
+        display: none;
+    }
+}
+
+.stepperStepWrapper {
+    background-color: #d1d1d1;
+    border-radius: 50%;
+    width: $steper-size;
+    height: $steper-size;
+    span {
+        color: #848484;
+    }
+
+    &.active {
+        background-color: $palette-main;
+        span {
+            color: #FFF;
+            font-size: .8rem;
+        }
+    }
+
+}

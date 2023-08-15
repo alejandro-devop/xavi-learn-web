@@ -23,6 +23,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
       {label && (
         <Label className={styles.inputLabel} htmlFor={props?.id}>
           {label}
+          {error && <span className={styles.formErrorMsg}>{error}</span>}
         </Label>
       )}
       <textarea
@@ -31,7 +32,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
         value={value || ""}
         {...props}
       />
-      {error && <span className="form-error-msg">{error}</span>}
+
       {max && !hideMax && (
         <span className={styles.charCount}>
           {`${value || ""}`?.length}/{max}

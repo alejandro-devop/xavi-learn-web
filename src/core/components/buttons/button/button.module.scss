@@ -33,9 +33,9 @@ $button-height: 30px;
     &.primary {
         color: #FFF;
         background-color: $button-primary-bg;
-        &:hover {
-            background-color: #{$button-primary-bg}b0;
-        }
+        // &:hover {
+        //     // background-color: #{$button-primary-bg}b0;
+        // }
     }
 
     &.secondary {

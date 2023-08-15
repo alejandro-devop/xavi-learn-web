@@ -1,10 +1,14 @@
 import Dialog from "core/components/dialogs/dialog/Dialog";
 import Table from "core/components/table";
 import { useGet } from "core/contexts/api-context/hooks";
+import { useState } from "react";
 import { HabitSchemaType } from "types/schemas/habit";
+import HabitCreate from "../habit-create";
 
 const HabitsList: React.FC = () => {
   const [data, loading] = useGet<HabitSchemaType[]>("habits.list");
+  const [opened, setOpened] = useState<boolean>(false);
+  const toggleAdd = () => setOpened(!opened);
   const columns = {
     name: "Name",
     description: "Description",
@@ -13,6 +17,11 @@ const HabitsList: React.FC = () => {
     should_avoid: "Should avoid",
     should_keep: "Should keep",
   };
+  const handleAction = (action: string) => {
+    if (action === "add") {
+      toggleAdd();
+    }
+  };
   return (
     <>
       <Table
@@ -20,6 +29,7 @@ const HabitsList: React.FC = () => {
         columns={Object.keys(columns)}
         data={data}
         loading={loading}
+        onTableActionCalled={handleAction}
         tableActions={[
           {
             action: "add",
@@ -32,6 +42,15 @@ const HabitsList: React.FC = () => {
           },
         ]}
       />
+      <Dialog
+        open={opened}
+        disableClose
+        disableFooter
+        title="Add Habit"
+        size="md"
+      >
+        <HabitCreate onCancel={toggleAdd} />
+      </Dialog>
     </>
   );
 };

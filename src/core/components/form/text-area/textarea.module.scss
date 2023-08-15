@@ -28,6 +28,12 @@
     color: $palette-secondary;
 }
 
+.formErrorMsg {
+    color: red;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
 .charCount {
     font-size: 0.8rem;
     margin-left: 1rem;
