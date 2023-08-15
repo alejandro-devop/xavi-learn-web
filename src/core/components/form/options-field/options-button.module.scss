@@ -1,0 +1,52 @@
+@import "styles/shared_modules.scss";
+
+.mainLabel {
+    color: $palette-main;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+$size: 20px;
+
+.label {
+    display: flex;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: .4rem;
+    align-items: center;
+    // margin-left: 1rem;
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    span {
+        display: inline-block;
+    }
+
+    span.control {
+        // position: absolute;
+        left: 0;
+        top: 0;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+        border: 2px solid $palette-main;
+        cursor: pointer;
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: .5rem;
+    }
+
+    input[type="radio"]:checked~span.control::after {
+        content: "";
+        display: inline-block;
+        width: $size - 10;
+        height: $size - 10;
+        background-color: $palette-main;
+        border-radius: 50%;
+    }
+
+}

@@ -14,17 +14,19 @@ import Grid, { Col, Row } from "core/grid";
 import _ from "lodash";
 import { useState } from "react";
 import DateField from "core/components/form/date-field/DateField";
+import OptionsField from "core/components/form/options-field";
 
 const TestingHallScreen: React.FC = () => {
   const [form, setForm] = useState<{ [k: string]: any }>({
     password: "jkrules",
+    options: "option-1",
   });
   const handleChange = ({ target }: any) => {
     const { value, name } = target;
     setForm({ ...form, [name]: value });
     // setForm();
   };
-
+  console.log(form);
   return (
     <InsidesLayout
       crumbs={[
@@ -288,6 +290,18 @@ const TestingHallScreen: React.FC = () => {
               placeholder="Select a date"
               name="date"
               value={form.date}
+            />
+            <OptionsField
+              name="options"
+              label="Options"
+              options={[
+                { label: "Option 1", value: "option-1" },
+                { label: "Option 2", value: "option-2" },
+                { label: "Option 3", value: "option-3" },
+                { label: "Option 4", value: "option-4" },
+              ]}
+              onChange={handleChange}
+              value={form.options}
             />
           </div>
         </div>
