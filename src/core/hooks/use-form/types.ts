@@ -10,6 +10,7 @@ export type UseFormHookReturnType<FT extends object = {}> = [
   {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     isValidForm?: boolean;
+    changeForm: (f?: any) => void;
   }
 ];
 

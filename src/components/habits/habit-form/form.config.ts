@@ -1,17 +1,22 @@
 import { UseFormHookConfigType } from "core/hooks/use-form/types";
-import { HabitForm } from "types/forms/habit.types";
+import { HabitFormType } from "types/forms/habit.types";
 
 export default {
-  required: ["name", "description", "start_date", "end_date"],
+  required: ["name", "category", "start_date", "end_date"],
   defaultValues: {},
   fields: {
     name: {
       label: "Name",
       placeholder: "Enter a name",
+      rules: "min:4",
     },
     description: {
       label: "Description",
-      placeholder: "Enter a description",
+      placeholder: "(Optional) Enter a description for the habit",
+    },
+    category: {
+      label: "Category",
+      placeholder: "Which aspect in your life does this habit affect?",
     },
     start_date: {
       label: "Start Date",
@@ -21,9 +26,6 @@ export default {
       label: "End Date",
       placeholder: "Enter an end date",
     },
-    category: {
-      label: "Category",
-    },
     measure: {
       label: "Measure",
     },
@@ -32,9 +34,11 @@ export default {
     },
     should_keep: {
       label: "Keep",
+      default: true,
     },
     should_avoid: {
       label: "Avoid",
+      default: false,
     },
     is_counter: {
       label: "Counter",
@@ -42,29 +46,17 @@ export default {
     is_timer: {
       label: "Timer",
     },
-    is_incremental: {
-      label: "Incremental",
-    },
-    is_decremental: {
-      label: "Decremental",
-    },
     days: {
       label: "Days",
-    },
-    streak: {
-      label: "Streak",
-    },
-    max_streak: {
-      label: "Max Streak",
     },
     daily_goal: {
       label: "Daily Goal",
     },
     timer_goal: {
-      label: "Timer Goal",
+      label: "How much time to complete? (mins)",
     },
     times_goal: {
-      label: "Times Goal",
+      label: "How many times to complete?",
     },
   },
-} as UseFormHookConfigType<HabitForm>;
+} as UseFormHookConfigType<HabitFormType>;

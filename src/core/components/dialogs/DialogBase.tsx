@@ -39,15 +39,16 @@ const DialogBase: React.FC<DialogBaseProps> = ({
    * give some time to execute the css animation.
    */
   const handleClose = useCallback(() => {
-    setFlags((prev) => ({ ...prev, closed: true }));
-    setTimeout(() => {
-      setFlags({
-        closed: false,
-        open: false,
-      });
-      onClose?.();
-    }, 1000);
-  }, [onClose, setFlags]);
+    onClose?.();
+    // setFlags((prev) => ({ ...prev, closed: true }));
+    // setTimeout(() => {
+    //   setFlags({
+    //     closed: false,
+    //     open: false,
+    //   });
+    //   onClose?.();
+    // }, 1000);
+  }, [onClose]);
 
   useEffect(() => {
     if (!flags.open && open === true && !flags.closed) {

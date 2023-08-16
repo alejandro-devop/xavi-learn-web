@@ -9,9 +9,10 @@ import classNames from "classnames";
 
 interface StepperProps {
   children?: React.ReactNode;
+  onCompleted?: () => void;
 }
 
-const Stepper: React.FC<StepperProps> = ({ children }) => {
+const Stepper: React.FC<StepperProps> = ({ children, onCompleted }) => {
   const [currentStep, setStep] = useState<number>(0);
   const stepsToRender = useMemo(() => {
     return React.Children.map(children, (child) => {
@@ -30,7 +31,7 @@ const Stepper: React.FC<StepperProps> = ({ children }) => {
       return null;
     })?.filter((item) => Boolean(item));
   }, [children]);
-  const stepDisplay = useMemo(() => currentStep + 1, [currentStep]);
+  // const stepDisplay = useMemo(() => currentStep + 1, [currentStep]);
   const totalSteps = useMemo(() => stepsToRender?.length || 0, [stepsToRender]);
 
   const handleNext = () => {
@@ -38,7 +39,11 @@ const Stepper: React.FC<StepperProps> = ({ children }) => {
     if (newStep < totalSteps) {
       setStep(newStep);
     }
+    if (newStep === totalSteps - 1 && onCompleted) {
+      onCompleted?.();
+    }
   };
+
   const handleBack = () => {
     let newStep = currentStep - 1;
     if (newStep >= 0) {
@@ -48,12 +53,20 @@ const Stepper: React.FC<StepperProps> = ({ children }) => {
     //   newStep = totalSteps - 1;
     // }
   };
+  const isInLastStep = useMemo(
+    () => currentStep === totalSteps - 1,
+    [currentStep, totalSteps]
+  );
+
+  const isInFirstStep = useMemo(() => currentStep === 0, [currentStep]);
 
   return (
     <StepperProvider
       value={{
         goNext: handleNext,
         goBack: handleBack,
+        isInFirstStep,
+        isInLastStep,
       }}
     >
       <div className={styles.stepperRoot}>

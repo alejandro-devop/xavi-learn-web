@@ -32,6 +32,7 @@ const Button: React.FC<ButtonProps> = ({
         [styles.primary]: variant === "primary",
         [styles.secondary]: variant === "secondary",
         [styles.rounded]: rounded,
+        [styles.disabled]: props.disabled,
       })}
       {...props}
     >

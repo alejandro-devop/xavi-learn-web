@@ -25,7 +25,6 @@ const RegisterScreen: ScreenType = () => {
       } else if (status) {
         setRegisteredMessage(data?.message);
       }
-      console.log(data);
     } catch {}
   };
 

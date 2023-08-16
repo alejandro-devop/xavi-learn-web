@@ -1,4 +1,4 @@
-export type HabitForm = {
+export type HabitFormType = {
   name: string;
   description: string;
   start_date: string;

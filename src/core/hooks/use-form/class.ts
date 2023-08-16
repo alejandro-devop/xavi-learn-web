@@ -143,8 +143,8 @@ export class Validator {
     const rules = this.fields[field]?.rules;
 
     if (this.required.includes(field) && _.isEmpty(value)) {
-      const label = this.fields[field]?.label || field;
-      return `"${label}" is required`;
+      // const label = this.fields[field]?.label || field;
+      return `* required`;
     }
 
     if (typeof rules === "string") {

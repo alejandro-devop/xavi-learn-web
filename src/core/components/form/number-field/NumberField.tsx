@@ -19,11 +19,25 @@ const NumberField: React.FC<NumberFieldProps> = ({
   min = 0,
   max = 0,
   step = 1,
+  onChange,
+  name,
   ...props
 }) => {
   const inputRef = useRef<any>({}).current;
   const [value, setValue] = React.useState<number>(
     parseInt(defValue as any, 10)
+  );
+
+  const triggerChange = useCallback(
+    (newValue: any) => {
+      onChange?.({
+        target: {
+          name: name || "",
+          value: newValue as any,
+        },
+      } as any);
+    },
+    [name, onChange]
   );
 
   const increase = useCallback(() => {
@@ -32,7 +46,8 @@ const NumberField: React.FC<NumberFieldProps> = ({
       newValue = max;
     }
     setValue(newValue);
-  }, [max, value, step]);
+    triggerChange(newValue);
+  }, [max, value, step, triggerChange]);
 
   const decrease = useCallback(() => {
     let newValue: number = value - step;
@@ -40,26 +55,34 @@ const NumberField: React.FC<NumberFieldProps> = ({
       newValue = min;
     }
     setValue(newValue);
-  }, [min, value, step]);
+    triggerChange(newValue);
+  }, [min, value, step, triggerChange]);
 
   const handleChangeValue: ChangeEventHandler<HTMLInputElement> = useCallback(
     (e) => {
       const { value } = e?.target;
       const valueToCheck = parseInt(value, 10);
+      let newValue = valueToCheck;
       // Validate if the value is a number so I can set the state
       if (!isNaN(valueToCheck)) {
         if (valueToCheck < max) {
-          setValue(valueToCheck);
+          newValue = valueToCheck;
+          // setValue(valueToCheck);
         } else if (valueToCheck < min) {
-          setValue(min);
+          // setValue(min);
+          newValue = min;
         } else {
-          setValue(max);
+          // setValue(max);
+          newValue = max;
         }
       } else {
-        setValue(min);
+        // setValue(min);
+        newValue = min;
       }
+      setValue(newValue);
+      triggerChange(newValue);
     },
-    [min, max]
+    [min, max, triggerChange]
   );
 
   const handleWheel = useCallback((e: WheelEvent) => {

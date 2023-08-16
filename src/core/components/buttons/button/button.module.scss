@@ -25,17 +25,14 @@ $button-height: 30px;
         border-width: 1px;
         border-style: solid;
         border-color:rgba(0,0,0,0.1);
-        &:hover {
-            background-color: #f1f1f1;
-        }
+        // &:hover {
+        //     background-color: #f1f1f1;
+        // }
     }
 
     &.primary {
         color: #FFF;
         background-color: $button-primary-bg;
-        // &:hover {
-        //     // background-color: #{$button-primary-bg}b0;
-        // }
     }
 
     &.secondary {
@@ -56,6 +53,12 @@ $button-height: 30px;
         background-color: rgba(0,0,0,0.07);
         align-items: center;
         justify-content: center;
+    }
+
+    &:disabled {
+        background-color: rgba(0,0,0,0.1);
+        color: rgba(0,0,0,0.3);
+        cursor: not-allowed;
     }
 
     .iconWrapperRounded {

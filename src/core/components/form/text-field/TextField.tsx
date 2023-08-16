@@ -60,8 +60,6 @@ const TextField = forwardRef(
         </div>
       </div>
     );
-    // }
-    // return <InputBase type="text" {...props} />;
   }
 );
 

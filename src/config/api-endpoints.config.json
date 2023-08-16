@@ -14,5 +14,8 @@
   "courses.followUps.update": "put:/api/v1/course-followup/{id}",
   "courses.followUps.remove": "delete:/api/v1/course-followup/{id}",
   "courses.view": "get:/api/v1/courses/{id}",
-  "habits.list": "get:/api/v1/habits"
+  "habits.list": "get:/api/v1/habits",
+  "habits.save": "post:/api/v1/habit",
+  "habits.categories.list": "get:/api/v1/habit-categories",
+  "general.measures.list": "get:/api/v1/settings/measures"
 }

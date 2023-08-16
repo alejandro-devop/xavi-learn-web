@@ -1,0 +1,10 @@
+@import 'styles/shared_modules.scss';
+
+.inputLabel {
+    color: $palette-secondary;
+}
+.formErrorMsg {
+    color: red;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}

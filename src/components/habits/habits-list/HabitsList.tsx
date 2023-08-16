@@ -6,7 +6,7 @@ import { HabitSchemaType } from "types/schemas/habit";
 import HabitCreate from "../habit-create";
 
 const HabitsList: React.FC = () => {
-  const [data, loading] = useGet<HabitSchemaType[]>("habits.list");
+  const [data, loading, { refetch }] = useGet<HabitSchemaType[]>("habits.list");
   const [opened, setOpened] = useState<boolean>(false);
   const toggleAdd = () => setOpened(!opened);
   const columns = {
@@ -21,6 +21,10 @@ const HabitsList: React.FC = () => {
     if (action === "add") {
       toggleAdd();
     }
+  };
+  const handleOnSaved = () => {
+    refetch();
+    toggleAdd();
   };
   return (
     <>
@@ -42,15 +46,17 @@ const HabitsList: React.FC = () => {
           },
         ]}
       />
-      <Dialog
-        open={opened}
-        disableClose
-        disableFooter
-        title="Add Habit"
-        size="md"
-      >
-        <HabitCreate onCancel={toggleAdd} />
-      </Dialog>
+      {opened && (
+        <Dialog
+          open={opened}
+          disableFooter
+          title="Add Habit"
+          size="sm"
+          onClose={toggleAdd}
+        >
+          <HabitCreate onSaved={handleOnSaved} onCancel={toggleAdd} />
+        </Dialog>
+      )}
     </>
   );
 };

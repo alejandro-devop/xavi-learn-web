@@ -2,11 +2,16 @@ import { useContext } from "react";
 import { Button } from "../buttons";
 import { StepperCTX } from "./StepperContext";
 
-const StepperBack: React.FC = () => {
-  const { goBack } = useContext(StepperCTX);
+interface StepperNextProps {
+  label?: string;
+}
+
+const StepperBack: React.FC<StepperNextProps> = ({ label }) => {
+  const { goBack, isInFirstStep } = useContext(StepperCTX);
+  if (isInFirstStep) return null;
   return (
     <Button rounded onClick={goBack}>
-      Back
+      {label || "Previous"}
     </Button>
   );
 };

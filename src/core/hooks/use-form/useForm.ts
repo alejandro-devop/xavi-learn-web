@@ -118,9 +118,19 @@ const useForm = <FT extends Object = {}>(
     return [config, !hasError];
   }, [form, fields, handleChange, validator, defaultValues, required]);
 
+  const changeForm = useCallback(
+    (newForm: any) => {
+      setForm({
+        ...form,
+        ...newForm,
+      });
+    },
+    [form]
+  );
+
   delete (formData as any).isValidForm;
 
-  return [formData, form, { onChange: handleChange, isValidForm }];
+  return [formData, form, { onChange: handleChange, isValidForm, changeForm }];
 };
 
 export default useForm;
