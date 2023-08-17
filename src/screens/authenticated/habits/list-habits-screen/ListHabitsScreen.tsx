@@ -3,7 +3,7 @@ import { InsidesLayout } from "layouts";
 
 const ListHabitsScreen: ScreenType = () => {
   return (
-    <InsidesLayout title="List habits">
+    <InsidesLayout title="My habits" subtitle="Manage">
       <HabitsList />
     </InsidesLayout>
   );

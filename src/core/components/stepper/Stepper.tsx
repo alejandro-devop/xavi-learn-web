@@ -31,7 +31,7 @@ const Stepper: React.FC<StepperProps> = ({ children, onCompleted }) => {
       return null;
     })?.filter((item) => Boolean(item));
   }, [children]);
-  // const stepDisplay = useMemo(() => currentStep + 1, [currentStep]);
+
   const totalSteps = useMemo(() => stepsToRender?.length || 0, [stepsToRender]);
 
   const handleNext = () => {
@@ -49,9 +49,6 @@ const Stepper: React.FC<StepperProps> = ({ children, onCompleted }) => {
     if (newStep >= 0) {
       setStep(newStep);
     }
-    // if (newStep < 0) {
-    //   newStep = totalSteps - 1;
-    // }
   };
   const isInLastStep = useMemo(
     () => currentStep === totalSteps - 1,

@@ -16,6 +16,7 @@
   "courses.view": "get:/api/v1/courses/{id}",
   "habits.list": "get:/api/v1/habits",
   "habits.save": "post:/api/v1/habit",
+  "habits.categories.save": "post:/api/v1/habit-category",
   "habits.categories.list": "get:/api/v1/habit-categories",
   "general.measures.list": "get:/api/v1/settings/measures"
 }

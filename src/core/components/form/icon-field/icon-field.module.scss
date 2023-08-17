@@ -1,0 +1,60 @@
+@import 'styles/shared_modules.scss';
+
+$icon-wrapper-size: 30px;
+$item-size: 50px;
+.iconField {
+    cursor: pointer;
+    flex: 1;
+    padding-left: calc($icon-wrapper-size + 10px);
+}
+.wrapper {
+    display: flex;
+    position: relative;
+}
+.iconWrapper {
+    position: absolute;
+    bottom: calc($icon-wrapper-size / 2);
+    background-color: rgba(0, 0, 0, 0.1);
+    width: $icon-wrapper-size;
+    height: $icon-wrapper-size;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, $item-size);
+    grid-gap: 1rem;
+    justify-content: space-between;
+}
+.iconItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: $item-size;
+    height: $item-size;
+    padding: .5rem;
+    margin: .5rem .5rem;
+    span.text {
+        font-size: .7rem;
+        text-align: center;
+    }
+}
+
+.selected {
+    .innerIconWrapper {
+        border-radius: 50%;
+        padding: .4rem;
+        display: block;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $palette-main;
+        color: #FFF;
+    }
+}

@@ -1,28 +1,3 @@
-export type IconType =
-  | "add"
-  | "angles-left"
-  | "angles-right"
-  | "calendar"
-  | "calendar-alt"
-  | "chevron-left"
-  | "chevron-right"
-  | "chevron-up"
-  | "chevron-down"
-  | "cogs"
-  | "eye"
-  | "eye-slash"
-  | "edit"
-  | "envelope"
-  | "filter"
-  | "flask"
-  | "gauge"
-  | "graduation-cap"
-  | "lock"
-  | "lock-open"
-  | "minus"
-  | "search"
-  | "tag"
-  | "times"
-  | "trash"
-  | "bars"
-  | "user";
+import { icons } from "./available-icons";
+
+export type IconType = (typeof icons)[number];

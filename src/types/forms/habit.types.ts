@@ -19,3 +19,9 @@ export type HabitFormType = {
   timer_goal?: number;
   times_goal?: number;
 };
+
+export type HabitCategoryFormType = {
+  name: string;
+  description: string;
+  icon: string;
+};

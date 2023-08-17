@@ -19,6 +19,7 @@ const DialogBase: React.FC<DialogBaseProps> = ({
   title,
   labels,
   onClose,
+  onAccept,
   disableFooter,
   open,
   size,
@@ -90,7 +91,11 @@ const DialogBase: React.FC<DialogBaseProps> = ({
               <Button disabled={flags?.closed} onClick={handleClose}>
                 {cancel}
               </Button>
-              <Button disabled={flags?.closed} variant="primary">
+              <Button
+                disabled={flags?.closed}
+                variant="primary"
+                onClick={onAccept}
+              >
                 {accept}
               </Button>
             </div>

@@ -4,6 +4,9 @@ import { useGet } from "core/contexts/api-context/hooks";
 import { useState } from "react";
 import { HabitSchemaType } from "types/schemas/habit";
 import HabitCreate from "../habit-create";
+import Tabs, { Tab } from "core/components/tabs";
+import HabitCard from "./HabitCard";
+import HabitCategoriesList from "../habit-categories-list";
 
 const HabitsList: React.FC = () => {
   const [data, loading, { refetch }] = useGet<HabitSchemaType[]>("habits.list");
@@ -28,7 +31,18 @@ const HabitsList: React.FC = () => {
   };
   return (
     <>
-      <Table
+      <Tabs initialTab={2}>
+        <Tab title="My day">My day</Tab>
+        <Tab title="habits">
+          {data?.map((item, key) => (
+            <HabitCard key={`habit-${key}-${item.id}`} habit={item} />
+          ))}
+        </Tab>
+        <Tab title="categories">
+          <HabitCategoriesList />
+        </Tab>
+      </Tabs>
+      {/* <Table
         colLabels={columns}
         columns={Object.keys(columns)}
         data={data}
@@ -45,7 +59,7 @@ const HabitsList: React.FC = () => {
             },
           },
         ]}
-      />
+      /> */}
       {opened && (
         <Dialog
           open={opened}
