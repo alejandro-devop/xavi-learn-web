@@ -23,6 +23,7 @@ const DialogBase: React.FC<DialogBaseProps> = ({
   disableFooter,
   open,
   size,
+  disableAccept,
 }) => {
   /**
    * The flags are being stored in an object to avoid calling
@@ -92,7 +93,7 @@ const DialogBase: React.FC<DialogBaseProps> = ({
                 {cancel}
               </Button>
               <Button
-                disabled={flags?.closed}
+                disabled={flags?.closed || disableAccept}
                 variant="primary"
                 onClick={onAccept}
               >

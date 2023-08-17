@@ -4,6 +4,10 @@ export interface DialogBaseProps {
   disableClose?: boolean;
   onClose?: () => void;
   onAccept?: () => void;
+  acceptLabel?: string;
+  cancelLabel?: string;
+  disableAccept?: boolean;
+  disableCancel?: boolean;
   disableFooter?: boolean;
   title?: string;
   size?: "xs" | "sm" | "md" | "lg" | "full";

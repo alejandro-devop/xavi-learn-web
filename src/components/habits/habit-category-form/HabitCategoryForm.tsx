@@ -11,17 +11,21 @@ import { HabitCategoryFormType } from "types/forms/habit.types";
 import { useCallback } from "react";
 
 interface HabitCategoryFormProps {
+  isUpdate?: boolean;
+  defaultValues?: any;
   loading?: boolean;
   onCancel?: () => void;
   onSubmit?: (form: HabitCategoryFormType) => void;
 }
 
 const HabitCategoryForm: React.FC<HabitCategoryFormProps> = ({
+  isUpdate,
+  defaultValues,
   loading,
   onSubmit,
   onCancel,
 }) => {
-  const [fields, form, { isValidForm }] = useForm(config);
+  const [fields, form, { isValidForm }] = useForm({ ...config, defaultValues });
   const handleSubmit = useCallback(() => {
     onSubmit?.(form);
   }, [form, onSubmit]);
@@ -39,7 +43,8 @@ const HabitCategoryForm: React.FC<HabitCategoryFormProps> = ({
           onClick={handleSubmit}
           disabled={!isValidForm || loading}
         >
-          {loading ? "Saving..." : "Save"}
+          {isUpdate ? "Update" : loading ? "Saving..." : "Save"}
+          {/* {loading ? "Saving..." : "Save"} */}
         </Button>
       </Fieldset>
     </Form>

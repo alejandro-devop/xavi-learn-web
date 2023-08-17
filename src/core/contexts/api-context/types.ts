@@ -83,7 +83,15 @@ export type ApiConfigType<GenConfig = {}> = {
  * Type for the return of the hooks like useGet, useLazyGet and useDelete, which handles no payload
  */
 export type HookReturnType<ResponseType = {}> = [
-  (configOverride?: ApiConfigType) => Promise<APIResponseType<ResponseType>>,
+  (
+    | ((
+        p?: any,
+        configOverride?: ApiConfigType
+      ) => Promise<APIResponseType<ResponseType>>)
+    | ((
+        configOverride?: ApiConfigType
+      ) => Promise<APIResponseType<ResponseType>>)
+  ),
   boolean
 ];
 

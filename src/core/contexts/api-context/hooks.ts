@@ -37,7 +37,8 @@ export const useRequest = <PayloadType = {}, ResponseType = {}>(
    * @returns
    */
   const sendRequest = async (
-    p: PayloadType
+    p: PayloadType,
+    configOverride?: ApiConfigType
   ): Promise<APIResponseType<ResponseType>> => {
     setLoading(true);
     executed.current = true;
@@ -50,6 +51,7 @@ export const useRequest = <PayloadType = {}, ResponseType = {}>(
       setErrors(undefined);
       const { response } = await client.doRequest(endpoint, {
         ...config,
+        ...configOverride,
         payload: p,
       });
       const { errors } = response;
@@ -165,7 +167,10 @@ export const useDelete = <ResponseType = {}>(
     ...config,
     method: "DELETE",
   });
-  return [sendRequest, loading];
+  const handleDelete = async (configOverride: ApiConfigType) => {
+    return await sendRequest(undefined, configOverride);
+  };
+  return [handleDelete, loading];
 };
 
 /**
