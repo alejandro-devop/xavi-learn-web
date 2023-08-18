@@ -25,3 +25,13 @@ export type HabitCategoryFormType = {
   description: string;
   icon: string;
 };
+
+export type HabitFollowUpFormType = {
+  date?: string;
+  daily_goal?: number;
+  daily_counter?: number;
+  is_accomplished?: boolean;
+  is_failed?: boolean;
+  story?: string;
+  habit?: string;
+};

@@ -1,4 +1,5 @@
 import { IconType } from "core/components/icon/types";
+import { MeasureSchemaType } from "./general";
 
 export type HabitCategorySchemaType = {
   id: string;
@@ -33,5 +34,20 @@ export type HabitSchemaType = {
   updated_at: string;
   category: HabitCategorySchemaType;
   activity: null;
-  measure: null;
+  measure?: MeasureSchemaType;
+  follow_ups_month?: HabitFollowUpSchemaType[];
+};
+
+export type HabitFollowUpSchemaType = {
+  id: string;
+  order_index: number;
+  date: string;
+  daily_goal: number;
+  is_accomplished: boolean;
+  story?: string;
+  is_failed: boolean;
+  daily_counter: number;
+  created_at: string;
+  updated_at: string;
+  habit?: HabitSchemaType;
 };

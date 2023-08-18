@@ -20,6 +20,8 @@ $follow-up-size: 40px;
 
 .day {
     width: $day-size;
+    margin-right: .2rem;
+    margin-bottom: 1.8rem;
     // background-color: rgba(0,0,0,.07);
     span {
         text-align: center;
@@ -44,9 +46,40 @@ $follow-up-size: 40px;
     height: $follow-up-size;
     border-radius: 20px;
     background-color: rgba(0,0,0,.06);
+    position: relative;
     cursor: pointer;
     span {
         color: rgba(0,0,0,.5);
+    }
+    &.accomplished {
+        background-color: $palette-success;
+        position: relative;
+        .numberText {
+            color: #FFF;
+        }
+        &::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            background-color: $palette-success;
+            right: 0px;
+            // transform: translateX(20px);
+            transform: translateX(5px);
+        }
+    }
+    &.failed {
+        background-color: $palette-error;
+    }
+
+    & .dailyDetail {
+        position: absolute;
+        display: block;
+        bottom: 0px;
+        font-size: 0.6rem;
+        transform: translateY(100%);
+        color: rgba(0,0,0,.8);
+        width: 100%;
     }
 }
 
@@ -57,7 +90,7 @@ $follow-up-size: 40px;
         border-radius: 20px;
 
         .followUpWrapper {
-            span {
+            .numberText {
                 color: #FFF;
             }
         }

@@ -1,4 +1,4 @@
-import { HabitSchemaType } from "types/schemas/habit";
+import { HabitFollowUpSchemaType, HabitSchemaType } from "types/schemas/habit";
 import styles from "./habit-card.module.scss";
 import Icon, { IconType } from "core/components/icon";
 import Grid, { Col, Row } from "core/grid";
@@ -7,6 +7,10 @@ import IconButton from "core/components/buttons/icon-button";
 
 interface HabitCardProps {
   habit: HabitSchemaType;
+  addFollowUp?: (info: {
+    date: string;
+    followUp?: HabitFollowUpSchemaType;
+  }) => void;
 }
 
 const RenderBadge: React.FC<{
@@ -23,7 +27,7 @@ const RenderBadge: React.FC<{
   );
 };
 
-const HabitCard: React.FC<HabitCardProps> = ({ habit }) => {
+const HabitCard: React.FC<HabitCardProps> = ({ habit, addFollowUp }) => {
   return (
     <div className={styles.habitCard}>
       <Grid>
@@ -42,7 +46,7 @@ const HabitCard: React.FC<HabitCardProps> = ({ habit }) => {
                   />
                   <RenderBadge
                     icon="fire-flame-curved"
-                    label={`streak: ${habit.days}`}
+                    label={`streak: ${habit.streak}`}
                   />
                   {/* <RenderBadge icon="calendar" label={`days: ${habit.days}`} /> */}
                   {/* <p className={styles.categoryName}>{habit?.category.name}</p> */}
@@ -66,7 +70,11 @@ const HabitCard: React.FC<HabitCardProps> = ({ habit }) => {
             </div>
           </Col>
           <Col size={8}>
-            <CurrentWeek />
+            <CurrentWeek
+              habit={habit}
+              monthFollowUps={habit.follow_ups_month}
+              onAddFollowUp={addFollowUp}
+            />
           </Col>
         </Row>
       </Grid>

@@ -20,5 +20,7 @@
   "habits.categories.update": "put:/api/v1/habit-category/{id}",
   "habits.categories.delete": "delete:/api/v1/habit-category/{id}",
   "habits.categories.list": "get:/api/v1/habit-categories",
+  "habits.followUps.save": "post:/api/v1/follow-ups/habit/add",
+  "habits.followUps.update": "put:/api/v1/follow-ups/habit/{id}",
   "general.measures.list": "get:/api/v1/settings/measures"
 }
