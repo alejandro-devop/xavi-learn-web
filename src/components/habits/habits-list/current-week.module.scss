@@ -1,0 +1,65 @@
+@import 'styles/shared_modules.scss';
+
+.root {
+    flex: 1;
+    h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+$day-size: 40px;
+$follow-up-size: 40px;
+
+.day {
+    width: $day-size;
+    // background-color: rgba(0,0,0,.07);
+    span {
+        text-align: center;
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.currentDay {
+        background-color: $palette-main;
+        color: #FFF;
+        border-radius: 20px;
+    }
+}
+
+.followUpWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $follow-up-size;
+    height: $follow-up-size;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,.06);
+    cursor: pointer;
+    span {
+        color: rgba(0,0,0,.5);
+    }
+}
+
+.day {
+    &.currentDay {
+        background-color: $palette-main;
+        color: #FFF;
+        border-radius: 20px;
+
+        .followUpWrapper {
+            span {
+                color: #FFF;
+            }
+        }
+    }
+}

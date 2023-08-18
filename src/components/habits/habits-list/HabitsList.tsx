@@ -7,33 +7,31 @@ import HabitCreate from "../habit-create";
 import Tabs, { Tab } from "core/components/tabs";
 import HabitCard from "./HabitCard";
 import HabitCategoriesList from "../habit-categories-list";
+import { Button } from "core/components/buttons";
+import classNames from "classnames";
 
 const HabitsList: React.FC = () => {
-  const [data, loading, { refetch }] = useGet<HabitSchemaType[]>("habits.list");
+  const [data, , { refetch }] = useGet<HabitSchemaType[]>("habits.list");
   const [opened, setOpened] = useState<boolean>(false);
   const toggleAdd = () => setOpened(!opened);
-  const columns = {
-    name: "Name",
-    description: "Description",
-    start_date: "Start date",
-    end_date: "End date",
-    should_avoid: "Should avoid",
-    should_keep: "Should keep",
-  };
-  const handleAction = (action: string) => {
-    if (action === "add") {
-      toggleAdd();
-    }
-  };
+
   const handleOnSaved = () => {
     refetch();
     toggleAdd();
   };
   return (
     <>
-      <Tabs initialTab={2}>
-        <Tab title="My day">My day</Tab>
+      <Tabs initialTab={0}>
         <Tab title="habits">
+          <div
+            className={classNames(
+              "flex flex-1 py-2 px-1 rounded-sm justify-end"
+            )}
+          >
+            <Button rounded variant="primary" icon="add" onClick={toggleAdd}>
+              Add habit
+            </Button>
+          </div>
           {data?.map((item, key) => (
             <HabitCard key={`habit-${key}-${item.id}`} habit={item} />
           ))}
@@ -42,24 +40,6 @@ const HabitsList: React.FC = () => {
           <HabitCategoriesList />
         </Tab>
       </Tabs>
-      {/* <Table
-        colLabels={columns}
-        columns={Object.keys(columns)}
-        data={data}
-        loading={loading}
-        onTableActionCalled={handleAction}
-        tableActions={[
-          {
-            action: "add",
-            label: "New ",
-            icon: "add",
-            buttonProps: {
-              variant: "primary",
-              rounded: true,
-            },
-          },
-        ]}
-      /> */}
       {opened && (
         <Dialog
           open={opened}

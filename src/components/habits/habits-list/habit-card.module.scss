@@ -1,1 +1,113 @@
-.habitCard {}
+@import 'styles/shared_modules.scss';
+.badgesWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
+}
+.badge {
+    display: flex;
+    background-color: rgba(0,0,0,.1);
+    margin-right: .2rem;
+    border-radius: 20px;
+    margin-bottom: .2rem;
+    i {
+        color: #FFF;
+        background-color: #000;
+        align-items: center;
+        justify-content: center;
+        display: inline-flex;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin-right: .5rem;
+        
+    }
+    span {
+        margin-right: .5rem;
+    }
+}
+.habitCard {
+    display: flex;
+    background-color: #FFF;
+    margin-bottom: .5rem;
+    padding: .3rem .8rem;
+    border-radius: 10px;
+}
+.habitInfo {
+    h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    p.categoryName {
+        margin: 0;
+        font-size: .8rem;
+        // text-decoration: underline;
+        // color: $palette-main;
+        display: inline-block;
+        background-color: $palette-light-2;
+        align-self: flex-start;
+        margin-bottom: .5rem;
+        padding: .1rem .8rem;
+        border-radius: 20px;
+        color: #FFF;
+    }
+}
+
+.habitDetails {
+    flex: 4;
+}
+
+.headWrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: $palette-main;
+    border-radius: 50%;
+    margin-right: .4rem;
+    color: #FFF;
+}
+
+.avoid, .keep {
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #FFF;
+    margin-bottom: 1rem;
+    position: relative;
+    &::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        position: absolute;
+        content: attr(data-label);
+        float: left;
+        color: rgba(0,0,0,.3);
+        font-size: .7rem;
+        bottom: 0;
+        // right: 0;
+        transform: translate(0px, 15px);
+    }
+}
+
+.avoid {
+    background-color: $palette-error;
+}
+
+.keep {
+    background-color: $palette-success;
+}
